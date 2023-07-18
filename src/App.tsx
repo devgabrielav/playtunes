@@ -11,8 +11,8 @@ function App() {
       <Routes>
         <Route path="/" Component={ Login } />
         <Route path="/search" Component={ Search } />
-        <Route path='/album/:id' Component={ Album } />
-        <Route path='*' Component={ NotFound } />
+        <Route path="/album/:id" Component={ Album } />
+        <Route path="*" Component={ NotFound } />
       </Routes>
     </div>
   );

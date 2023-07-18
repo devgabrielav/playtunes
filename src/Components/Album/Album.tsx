@@ -1,9 +1,9 @@
-import MusicCard from "../MusicCard/MusicCard";
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import getMusics from "../../services/musicsAPI";
-import Loading from "../Loading/Loading";
-import { AlbumType, SongType } from "../../types";
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import MusicCard from '../MusicCard/MusicCard';
+import getMusics from '../../services/musicsAPI';
+import Loading from '../Loading/Loading';
+import { AlbumType, SongType } from '../../types';
 
 function Album() {
   const { id } = useParams();
@@ -19,22 +19,22 @@ function Album() {
     artworkUrl100: '',
     releaseDate: '',
     trackCount: 0,
-  })
+  });
 
   useEffect(() => {
     setIsLoading(true);
     const fetch = async () => {
-      if(id) {
-        const musics = await getMusics(id);
-        setAlbumAndArtist(musics[0]);
-        musics.shift();
-        setMusicsToBe(musics as SongType[])
+      if (id) {
+        const data = await getMusics(id); // musics = [AlbumType, ...SongType[]]
+        const [album, ...musics] = data;
+        setAlbumAndArtist(album);
+        setMusicsToBe(musics);
         setShowInfo(true);
         setIsLoading(false);
       }
-    }
+    };
     fetch();
-  },[])
+  }, []);
 
   if (isLoading) {
     return (
@@ -45,15 +45,24 @@ function Album() {
     <div>
       {showInfo && (
         <div>
-          <img src={albumAndArtist.artworkUrl100} alt={albumAndArtist.collectionName} />
-          <h2 data-testid="artist-name">{albumAndArtist.artistName}</h2>
-          <h1 data-testid="album-name">{albumAndArtist.collectionName}</h1>
+          <img
+            src={ albumAndArtist.artworkUrl100 }
+            alt={ albumAndArtist.collectionName }
+          />
+          <h2 data-testid="artist-name">{ albumAndArtist.artistName }</h2>
+          <h1 data-testid="album-name">{ albumAndArtist.collectionName }</h1>
           {musicsToBe.map((music) => (
-          <MusicCard trackId={music.trackId} trackName={music.trackName} previewUrl={music.previewUrl} key={ music.trackId }/>
+            <MusicCard
+              trackId={ music.trackId }
+              trackName={ music.trackName }
+              previewUrl={ music.previewUrl }
+              key={ music.trackId }
+            />
           ))}
         </div>
       )}
     </div>
-)}
+  );
+}
 
 export default Album;
