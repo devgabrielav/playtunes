@@ -3,35 +3,19 @@ import { useNavigate } from 'react-router-dom';
 import { createUser } from '../../services/userAPI';
 import Loading from '../Loading/Loading';
 
-type ChangeProp = {
-  login: string,
-};
-
 function Login() {
-  const [inputValue, setInputValue] = useState<ChangeProp>({
-    login: '',
-  });
-  const [isActive, setIsActive] = useState(true);
+  const [inputValue, setInputValue] = useState<string>('');
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
-    setInputValue({
-      ...inputValue,
-      [name]: value,
-    });
-
-    if (inputValue.login.length >= 2) {
-      setIsActive(false);
-    } else {
-      setIsActive(true);
-    }
+    const { value } = event.target;
+    setInputValue(value);
   };
 
   const handleClick = async () => {
     setIsLoading(true);
-    await createUser({ name: inputValue.login });
+    await createUser({ name: inputValue });
     navigate('/search');
     setIsLoading(false);
   };
@@ -51,7 +35,7 @@ function Login() {
       />
       <button
         data-testid="login-submit-button"
-        disabled={ isActive }
+        disabled={ inputValue.length < 3 }
         onClick={ handleClick }
       >
         Entrar
