@@ -1,6 +1,6 @@
 function App() {
   return (
-    <p>Trybetunes</p>
+    <p>Trybetunes!</p>
   );
 }
 
