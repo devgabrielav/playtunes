@@ -34,7 +34,7 @@ function Album() {
       }
     };
     fetch();
-  }, []);
+  }, [id]);
 
   if (isLoading) {
     return (
