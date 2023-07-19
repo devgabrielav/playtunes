@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { SongType } from '../../types';
-import { addSong, removeSong } from '../../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs, removeSong } from '../../services/favoriteSongsAPI';
+import Loading from '../Loading/Loading';
 import empty from '../../images/empty_heart.png';
 import checked from '../../images/checked_heart.png';
 import './MusicCard.css';
@@ -8,6 +9,7 @@ import './MusicCard.css';
 function MusicCard(musics: SongType) {
   const { trackName, previewUrl, trackId } = musics;
   const [isChecked, setIsChecked] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const heartFull = () => {
     if (isChecked === true) {
@@ -16,6 +18,21 @@ function MusicCard(musics: SongType) {
       setIsChecked(true);
     }
   };
+
+  useEffect(() => {
+    setIsLoading(true);
+    const fetchMusic = async () => {
+      const result = await getFavoriteSongs();
+      result.filter((music) => {
+        if (music.trackId === trackId) {
+          return setIsChecked(true);
+        }
+        return null;
+      });
+      setIsLoading(false);
+    };
+    fetchMusic();
+  }, [trackId]);
 
   useEffect(() => {
     const fetch = async () => {
@@ -27,6 +44,12 @@ function MusicCard(musics: SongType) {
     };
     fetch();
   }, [isChecked, musics]);
+
+  if (isLoading) {
+    return (
+      <Loading />
+    );
+  }
 
   return (
     <div>
