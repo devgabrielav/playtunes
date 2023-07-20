@@ -2,6 +2,10 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createUser } from '../../services/userAPI';
 import Loading from '../Loading/Loading';
+import './Login.css';
+import trybe from './trybe.png';
+import headphone from './Ellipse 1 (Stroke).png';
+import tunes from './tunes.png';
 
 function Login() {
   const [inputValue, setInputValue] = useState<string>('');
@@ -25,7 +29,12 @@ function Login() {
   }
 
   return (
-    <div>
+    <div className="box">
+      <div className="logo">
+        <img src={ trybe } alt="" />
+        <img src={ headphone } alt="" />
+        <img src={ tunes } alt="" />
+      </div>
       <input
         type="text"
         placeholder="Digite seu nome"

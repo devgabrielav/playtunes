@@ -21,10 +21,6 @@ function Album() {
     trackCount: 0,
   });
 
-  const random = () => {
-    return null;
-  };
-
   useEffect(() => {
     setIsLoading(true);
     const fetch = async () => {
@@ -57,7 +53,6 @@ function Album() {
           <h1 data-testid="album-name">{ albumAndArtist.collectionName }</h1>
           {musicsToBe.map((music) => (
             <MusicCard
-              handleClick={ random }
               musics={ music }
               key={ music.trackId }
             />

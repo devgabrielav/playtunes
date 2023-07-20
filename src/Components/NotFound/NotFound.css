@@ -1,0 +1,28 @@
+body {
+  background: linear-gradient(289.33deg, #003be5 -3.32%, #00d5e2 72.67%);
+  height: 391px;
+  left: -2753px;
+  text-align: center;
+  top: 591px;
+  width: 1280px;
+}
+
+.ops {
+  color: #003be5;
+  display: flex;
+  font-size: 122px;
+  font-weight: 400px;
+  justify-content: center;
+  letter-spacing: 0.02em;
+  line-height: 125px;
+  margin-top: 300px;
+}
+
+.texto {
+  color: #00d5e2;
+  font-size: 37px;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  line-height: 40px;
+  text-align: left;
+}

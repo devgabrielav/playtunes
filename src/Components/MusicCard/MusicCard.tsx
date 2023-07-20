@@ -8,10 +8,10 @@ import './MusicCard.css';
 
 type MusicCardType = {
   musics : SongType,
-  handleClick: (event : React.MouseEvent<HTMLInputElement>) => void | null,
+  handleClick?: (event : React.MouseEvent<HTMLInputElement>) => void,
 };
 
-function MusicCard({ musics, handleClick }: MusicCardType) {
+function MusicCard({ musics, handleClick = undefined }: MusicCardType) {
   const { trackName, previewUrl, trackId } = musics;
   const [isChecked, setIsChecked] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -40,17 +40,6 @@ function MusicCard({ musics, handleClick }: MusicCardType) {
     };
     fetchMusic();
   }, [trackId]);
-
-  /*   useEffect(() => {
-    const fetch = async () => {
-      if (isChecked === true) {
-        await addSong(musics);
-      } else {
-        await removeSong(musics);
-      }
-    };
-    fetch();
-  }, [heartFull, musics]); */
 
   if (isLoading) {
     return (
@@ -83,6 +72,7 @@ function MusicCard({ musics, handleClick }: MusicCardType) {
           id={ trackName }
           checked={ isChecked }
           onChange={ heartFull }
+          // onClick={(event) =>  handleClick? handleClick(event) : (null)}
           onClick={ handleClick }
         />
       </label>

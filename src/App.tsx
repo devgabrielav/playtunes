@@ -11,7 +11,6 @@ import ProfileEdit from './Components/ProfileEdit/ProfileEdit';
 function App() {
   return (
     <div>
-      <p>Trybetunes</p>
       <Routes>
         <Route Component={ Layout }>
           <Route path="/search" Component={ Search } />
