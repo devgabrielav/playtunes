@@ -6,16 +6,23 @@ import empty from '../../images/empty_heart.png';
 import checked from '../../images/checked_heart.png';
 import './MusicCard.css';
 
-function MusicCard(musics: SongType) {
+type MusicCardType = {
+  musics : SongType,
+  handleClick: (event : React.MouseEvent<HTMLInputElement>) => void | null,
+};
+
+function MusicCard({ musics, handleClick }: MusicCardType) {
   const { trackName, previewUrl, trackId } = musics;
   const [isChecked, setIsChecked] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const heartFull = () => {
+  const heartFull = async () => {
     if (isChecked === true) {
       setIsChecked(false);
+      await removeSong(musics);
     } else {
       setIsChecked(true);
+      await addSong(musics);
     }
   };
 
@@ -34,7 +41,7 @@ function MusicCard(musics: SongType) {
     fetchMusic();
   }, [trackId]);
 
-  useEffect(() => {
+  /*   useEffect(() => {
     const fetch = async () => {
       if (isChecked === true) {
         await addSong(musics);
@@ -43,7 +50,7 @@ function MusicCard(musics: SongType) {
       }
     };
     fetch();
-  }, [isChecked, musics]);
+  }, [heartFull, musics]); */
 
   if (isLoading) {
     return (
@@ -76,6 +83,7 @@ function MusicCard(musics: SongType) {
           id={ trackName }
           checked={ isChecked }
           onChange={ heartFull }
+          onClick={ handleClick }
         />
       </label>
     </div>
