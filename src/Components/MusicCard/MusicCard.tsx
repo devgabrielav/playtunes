@@ -43,29 +43,34 @@ function MusicCard({ musics, handleClick = undefined }: MusicCardType) {
 
   if (isLoading) {
     return (
-      <Loading />
+      <div className="cardLoader">
+        <Loading />
+      </div>
     );
   }
 
   return (
-    <div>
-      <span>{ trackName }</span>
-      <audio data-testid="audio-component" src={ previewUrl } controls>
+    <div className="card">
+      <span className="songName">{ trackName }</span>
+      <div className="audioAndCheck">
+        <div className="audioBack">
+      <audio data-testid="audio-component" src={ previewUrl } controls className="audio">
         { trackName }
         <track kind="captions" />
         O seu navegador não suporta o elemento
         {' '}
         <code>audio</code>
       </audio>
+        </div>
       <label
         htmlFor={ trackName }
         data-testid={ `checkbox-music-${trackId}` }
         className="heart"
-      >
+        >
         <img
           src={ isChecked ? (checked) : (empty) }
           alt="favorite"
-        />
+          />
         <input
           type="checkbox"
           name={ trackName }
@@ -74,8 +79,10 @@ function MusicCard({ musics, handleClick = undefined }: MusicCardType) {
           onChange={ heartFull }
           // onClick={(event) =>  handleClick? handleClick(event) : (null)}
           onClick={ handleClick }
-        />
+          style={ { appearance: 'none' } }
+          />
       </label>
+          </div>
     </div>
   );
 }

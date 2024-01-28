@@ -1,0 +1,57 @@
+
+.favLoading {
+  height: 100%;
+  flex-shrink: 0;
+  background: #dfe3e7;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.favMusics {
+  margin-left: 264.4px;
+}
+
+.title {
+  width: 1080px;
+  display: flex;
+  grid-template-columns: 260px 1fr;
+  background: url('./albumB.png');
+  background-size: cover;
+  position: relative;
+  bottom: -150px;
+  padding-top: 90px;
+  top: 0px;
+  height: 130px;
+  text-align: center;
+  justify-content: center;
+}
+
+.favText {
+  width: 337.2px;
+  height: 24.894px;
+  flex-shrink: 0;
+  color: white;
+  text-align: center;
+  font-family: Epilogue;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.musicsFav {
+  width: 1080px;
+  height: 100%;
+  flex-shrink: 0;
+  background: #dfe3e7;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  margin-top: 50px;
+  text-align: start;
+  margin-bottom: 20px;
+}

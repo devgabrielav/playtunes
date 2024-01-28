@@ -1,0 +1,149 @@
+body {
+  background: #dfe3e7;
+  overflow-x: hidden;
+}
+
+.searchMain {
+  background: url('./searchB.png');
+  background-size: cover;
+  left: -2753px;
+  text-align: center;
+  width: 1096.1px;
+  height: 250px;
+  flex-shrink: 0;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  margin-left: 264.4px;
+}
+
+.albunsDiv {
+  width: 1080px;
+  height: 100%;
+  flex-shrink: 0;
+  background: #dfe3e7;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-left: 264.4px;
+}
+
+.pesquisador {
+  width: 400px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 23px;
+  background: rgba(255, 255, 255, 0.5);
+  color: white;
+  padding: 1px 10px;
+  border: none;
+  margin-right: 15px;
+}
+
+.pesquisaB {
+  width: 114px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 23px;
+  background: #00d5e2;
+  cursor: pointer;
+  border: none;
+}
+
+.cover {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  border-radius: 10px;
+  margin: 15px 15px;
+  align-items: center;
+}
+
+.albumName {
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  align-content: center;
+  text-decoration: none;
+  text-align: start;
+  color: var(--gray-700, #3d495c);
+  margin-top: 10px;
+  font-size: 12.07px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%; /* 18.105px */
+}
+
+.imageCover {
+  border-radius: 10px;
+  color: #003BE5;
+  width: 200px;
+  text-align: center;
+  font-family: Epilogue;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.defaultText {
+  width: 1080px;
+  background: #dfe3e7;
+  height: 50px;
+  margin: auto;
+  margin-left: 264.4px;
+  padding: 10px;
+  color: #003be5;
+  text-align: center;
+  font-family: Epilogue;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 300;
+  line-height: normal;
+  margin-top: 50px;
+  margin-bottom: -10px;
+}
+
+.loadingSearch {
+  width: 1080px;
+  height: 100%;
+  flex-shrink: 0;
+  background: #dfe3e7;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-left: 264.4px;
+}
+
+.artistName {
+  color: var(--gray-700, #3d495c);
+  font-family: Epilogue;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 13.579px */
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  align-content: center;
+  text-decoration: none;
+  text-align: start;
+  margin-top: 5px;
+}
+
+.nothingFound {
+  width: 1080px;
+  height: 100%;
+  flex-shrink: 0;
+  background: #dfe3e7;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 150px;
+  margin-left: 264.4px;
+}

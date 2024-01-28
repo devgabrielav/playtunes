@@ -4,6 +4,7 @@ import MusicCard from '../MusicCard/MusicCard';
 import getMusics from '../../services/musicsAPI';
 import Loading from '../Loading/Loading';
 import { AlbumType, SongType } from '../../types';
+import './Album.css';
 
 function Album() {
   const { id } = useParams();
@@ -38,25 +39,34 @@ function Album() {
 
   if (isLoading) {
     return (
-      <Loading />
+      <div className="albumLoadin">
+        <Loading />
+      </div>
     );
   }
   return (
     <div>
       {showInfo && (
-        <div>
+        <div style={{background: '#dfe3e7'}}>
+          <div className="albumDetails">
           <img
             src={ albumAndArtist.artworkUrl100 }
             alt={ albumAndArtist.collectionName }
+            className="capa"
           />
-          <h2 data-testid="artist-name">{ albumAndArtist.artistName }</h2>
-          <h1 data-testid="album-name">{ albumAndArtist.collectionName }</h1>
+          <div className="artistAndAlbum">
+          <p data-testid="album-name" className="albumNameA">{ albumAndArtist.collectionName }</p>
+          <p data-testid="artist-name" className="artistNameA">{ albumAndArtist.artistName }</p>
+          </div>
+          </div>
+          <div className="albumSongs">
           {musicsToBe.map((music) => (
             <MusicCard
               musics={ music }
               key={ music.trackId }
             />
           ))}
+          </div>
         </div>
       )}
     </div>

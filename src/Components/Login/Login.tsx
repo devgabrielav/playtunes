@@ -3,18 +3,22 @@ import { useNavigate } from 'react-router-dom';
 import { createUser } from '../../services/userAPI';
 import Loading from '../Loading/Loading';
 import './Login.css';
-import trybe from './trybe.png';
-import headphone from './Ellipse 1 (Stroke).png';
-import tunes from './tunes.png';
+import logo from './logo.png';
 
 function Login() {
   const [inputValue, setInputValue] = useState<string>('');
   const [isLoading, setIsLoading] = useState(false);
+  const [isChecked, setIsChecked] = useState(true);
   const navigate = useNavigate();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
     setInputValue(value);
+    if (inputValue.length < 2) {
+      setIsChecked(true);
+    } else {
+      setIsChecked(false);
+    }
   };
 
   const handleClick = async () => {
@@ -25,31 +29,37 @@ function Login() {
   };
 
   if (isLoading) {
-    return <Loading />;
+    return (
+    <div className="loginLoader">
+      <Loading />
+    </div>
+    );
   }
 
   return (
-    <div className="box">
-      <div className="logo">
-        <img src={ trybe } alt="" />
-        <img src={ headphone } alt="" />
-        <img src={ tunes } alt="" />
+    <main className="loginMain">
+      <div className="box">
+        <img src={ logo } alt="" className="logo" />
+        <input
+          type="text"
+          placeholder="Digite seu login"
+          data-testid="login-name-input"
+          onChange={ handleChange }
+          name="login"
+          className="login"
+        />
+        <br />
+        <button
+          data-testid="login-submit-button"
+          disabled={ isChecked }
+          onClick={ handleClick }
+          className="button"
+          style={isChecked? {color: 'grey'} : {color: 'white'}}
+        >
+          Entrar
+        </button>
       </div>
-      <input
-        type="text"
-        placeholder="Digite seu nome"
-        data-testid="login-name-input"
-        onChange={ handleChange }
-        name="login"
-      />
-      <button
-        data-testid="login-submit-button"
-        disabled={ inputValue.length < 3 }
-        onClick={ handleClick }
-      >
-        Entrar
-      </button>
-    </div>
+    </main>
   );
 }
 

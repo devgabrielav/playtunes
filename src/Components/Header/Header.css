@@ -1,0 +1,73 @@
+.navegacao {
+  background-color: white;
+  flex-shrink: 0;
+  height: 720px;
+  padding: 7px;
+  text-align: center;
+  width: 250px;
+  position: fixed;
+  top: 0;
+}
+
+.userSpan {
+  color: #444955;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.48px;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.imgAndName {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-top: -20px;
+}
+
+.imageUser {
+  background: lightgray -2.5px -2px / 111.25% 108.125% no-repeat;
+  border-radius: 19.608px;
+  flex-shrink: 0;
+  height: 40px;
+  margin-right: 10px;
+  width: 40px;
+}
+
+.navs {
+  align-items: center;
+  color: #444955;
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  font-style: normal;
+  height: 50px;
+  justify-content: center;
+  letter-spacing: 0.48px;
+  line-height: normal;
+  margin: auto;
+  margin-bottom: 20px;
+  padding: 1px 5px;
+  text-align: left;
+  text-decoration: none;
+  text-transform: capitalize;
+  width: 200px;
+}
+
+.navsCont {
+  margin-bottom: 200px;
+  text-align: center;
+}
+
+.logoNavH {
+  margin-bottom: 150px;
+}
+
+.headerLoading {
+  display: flex;
+  flex-direction: column;
+  width: 50px;
+  text-align: center;
+}
+

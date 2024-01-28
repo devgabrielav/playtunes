@@ -1,0 +1,89 @@
+.dadosUser {
+  margin-left: 264.4px;
+}
+
+.backProfile {
+  width: 1200px;
+  display: flex;
+  grid-template-columns: 260px 1fr;
+  background: url('./albumB.png');
+  background-size: cover;
+  position: relative;
+  bottom: -150px;
+  padding-top: 80px;
+  top: 0px;
+  height: 130px;
+}
+
+.profilePic {
+  position: absolute;
+  margin-left: 70px;
+  width: 240px;
+  height: 240px;
+  flex-shrink: 0;
+  border-radius: 240px;
+  box-shadow: -9px 8px 8px 0px rgba(68, 73, 85, 0.2);
+}
+
+.h3Profile {
+  color: var(--gray-700, #3d495c);
+  font-family: Epilogue;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%; /* 24px */
+  text-align: start;
+  margin-left: 370px;
+}
+
+.pProfile {
+  color: var(--gray-700, #3d495c);
+  font-family: Epilogue;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 21px */
+  margin-left: 370px;
+  text-align: start;
+}
+
+
+.descrip {
+  display: flex;
+  flex-wrap: wrap;
+  width: 490px;
+  height: 131px;
+  flex-shrink: 0;
+  margin-left: 370px;
+  border: none;
+  background: #dfe3e7;
+  margin-bottom: 20px;
+}
+
+
+.editButton {
+  color: white;
+  width: 152px;
+  height: 40px;
+  flex-shrink: 0;
+  text-decoration: none;
+  border-radius: 100px;
+  background: #003BE5;
+  padding: 10px 20px;
+}
+
+.divData {
+  margin-top: 50px;
+}
+
+.profileLoader {
+  width: 1080px;
+  height: 100%;
+  flex-shrink: 0;
+  background: #dfe3e7;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-left: 264.4px;
+}

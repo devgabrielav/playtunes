@@ -1,0 +1,17 @@
+.loadingH1 {
+  color: #003be5;
+  font-size: 48.92px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-align: center;
+}
+
+.spinner {
+  margin: auto;
+  margin-left: 100px;
+}
+
+.loader {
+  margin-top: 200px;
+}

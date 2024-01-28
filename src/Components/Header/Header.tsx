@@ -3,6 +3,8 @@ import { NavLink } from 'react-router-dom';
 import { getUser } from '../../services/userAPI';
 import { UserType } from '../../types';
 import Loading from '../Loading/Loading';
+import logo from './logo.png';
+import './Header.css';
 
 function Header() {
   const [user, setUser] = useState<UserType>();
@@ -20,16 +22,43 @@ function Header() {
 
   if (isLoading) {
     return (
-      <Loading />
+      <div className="headerLoading">
+        <Loading />
+      </div>
     );
   }
 
   return (
-    <header data-testid="header-component">
-      <h3 data-testid="header-user-name">{ user?.name }</h3>
-      <NavLink to="/search" data-testid="link-to-search">Search</NavLink>
-      <NavLink to="/favorites" data-testid="link-to-favorites">Favoritos</NavLink>
-      <NavLink to="/profile" data-testid="link-to-profile">Profile</NavLink>
+    <header data-testid="header-component" className="navegacao">
+      <img src={ logo } alt="" className="logoNavH" />
+      <br />
+      <div className="navsCont">
+        <NavLink
+          to="/search"
+          data-testid="link-to-search"
+          className="navs"
+        >
+          🔍 Pesquisa
+        </NavLink>
+        <NavLink
+          to="/favorites"
+          data-testid="link-to-favorites"
+          className="navs"
+        >
+          ⭐ Favoritas
+        </NavLink>
+        <NavLink
+          to="/profile"
+          data-testid="link-to-profile"
+          className="navs"
+        >
+          👤 Perfil
+        </NavLink>
+      </div>
+      <div className="imgAndName">
+        <img src={ user?.image } alt="" className="imageUser" />
+        <span data-testid="header-user-name" className="userSpan">{ user?.name }</span>
+      </div>
     </header>
   );
 }

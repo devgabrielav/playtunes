@@ -1,10 +1,14 @@
 body {
-  background: linear-gradient(289.33deg, #003be5 -3.32%, #00d5e2 72.67%);
-  height: 391px;
+  text-align: center;
+}
+
+.loginMain {
+  background: url('./login.png');
+  background-size: cover;
+  height: 691px;
   left: -2753px;
   text-align: center;
   top: 591px;
-  width: 1280px;
 }
 
 .box {
@@ -12,8 +16,53 @@ body {
   border-radius: 20px;
   box-shadow: 1px 1px 26px 1px rgba(68, 73, 85, 0.2);
   height: 450px;
-  left: 265px;
-  margin: auto;
-  top: 135px;
+  margin: 135px 265px;
+  position: fixed;
   width: 750px;
+}
+
+.logo {
+  margin: 110px 281px 50px 281.81px;
+}
+
+.login {
+  border: 1px solid #003be5;
+  border-radius: 100px;
+  color: #003be5;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  height: 40px;
+  line-height: normal;
+  margin-bottom: 20px;
+  text-align: center;
+  width: 400px;
+}
+
+.button {
+  background: #003be5;
+  border-radius: 100px;
+  cursor: pointer;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  height: 40px;
+  letter-spacing: 0.42px;
+  line-height: normal;
+  text-align: center;
+  text-transform: uppercase;
+  width: 400px;
+}
+
+.loginLoader {
+  width: 1080px;
+  height: 100%;
+  flex-shrink: 0;
+  background: #dfe3e7;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-left: 120px;
+  margin-top: 50px;
 }

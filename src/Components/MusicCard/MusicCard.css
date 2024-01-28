@@ -2,3 +2,46 @@
   cursor: pointer;
 }
 
+.card {
+  display: flex;
+  align-items: center;
+  background: #dfe3e7;
+  justify-content: space-between;
+  border-bottom: 1px solid #CCD4E1;
+}
+
+.audioAndCheck {
+  display: flex;
+  align-items: center;
+}
+
+.audio {
+  margin-left: -40px;
+  margin-right: 40px;
+  border-radius: 42.386px;
+  margin-bottom: 13px;
+  margin-top: 13px;
+  width: 300px;
+}
+
+.songName {
+  color: #001813;
+  font-family: Epilogue;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-right: 70px;
+}
+
+.cardLoader {
+  width: 1080px;
+  height: 100%;
+  flex-shrink: 0;
+  background: #dfe3e7;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-left: 264.4px;
+}

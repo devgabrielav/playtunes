@@ -1,0 +1,77 @@
+.albumSongs {
+  width: 1080px;
+  height: 100%;
+  flex-shrink: 0;
+  background: #dfe3e7;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  margin-left: 380px;
+  margin-top: 50px;
+  text-align: start;
+  margin-bottom: 20px;
+}
+
+.albumDetails {
+  display: flex;
+  margin-left: 264.4px;
+  grid-template-columns: 260px 1fr;
+  background: url('./albumB.png');
+  background-size: cover;
+  position: relative;
+  bottom: -150px;
+  padding-top: 140px;
+  top: 0px;
+  height: 130px;
+}
+
+.capa {
+  position: absolute;
+  margin-left: 70px;
+  width: 240px;
+  height: 240px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  box-shadow: -9px 8px 8px 0px rgba(68, 73, 85, 0.2);
+}
+
+.artistAndAlbum {
+  margin-left: 350px;
+  margin-top: -10px;
+  text-align: start;
+}
+
+.albumNameA {
+  width: 270px;
+  color: #fff;
+  font-family: Epilogue;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%; /* 30px */
+}
+
+.artistNameA {
+  color: white;
+  color: #fff;
+  font-family: Epilogue;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 21px */
+  margin-top: -5px;
+}
+
+.albumLoading {
+  width: 1080px;
+  height: 100%;
+  flex-shrink: 0;
+  background: #dfe3e7;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-left: 264.4px;
+}

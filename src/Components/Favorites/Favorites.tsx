@@ -3,6 +3,7 @@ import { getFavoriteSongs } from '../../services/favoriteSongsAPI';
 import { SongType } from '../../types';
 import Loading from '../Loading/Loading';
 import MusicCard from '../MusicCard/MusicCard';
+import './Favorites.css';
 
 function Favorites() {
   const [favoriteMusics, setFavoriteMusics] = useState<SongType[]>([]);
@@ -26,12 +27,18 @@ function Favorites() {
 
   if (isLoading) {
     return (
-      <Loading />
+      <div className="favLoading">
+        <Loading />
+      </div>
     );
   }
 
   return (
-    <div>
+    <div className="favMusics">
+      <div className="title">
+        <p className="favText">Músicas Favoritas</p>
+      </div>
+      <div className="musicsFav">
       {favoriteMusics.map((music) => (
         <MusicCard
           handleClick={ fetchSongs }
@@ -39,6 +46,8 @@ function Favorites() {
           key={ music.trackName }
         />
       ))}
+
+      </div>
     </div>
   );
 }

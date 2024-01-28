@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import Loading from '../Loading/Loading';
 import { AlbumType } from '../../types';
 import searchAlbumsAPI from '../../services/searchAlbumsAPI';
+import './Search.css';
+import circleX from './circleError.png';
 
 function Search() {
   const [inputValue, setInputValue] = useState<string>('');
@@ -27,25 +29,31 @@ function Search() {
 
   if (isLoading) {
     return (
-      <Loading />
+      <div className="loadingSearch">
+        <Loading />
+      </div>
     );
   }
 
   return (
     <div>
       {inputandButton && (
-        <div>
-          <input
-            type="text"
-            data-testid="search-artist-input"
-            placeholder="Digite o nome do(a) artista ou banda"
-            name="artist"
-            onChange={ handleChange }
-          />
+        <div className="searchMain">
+          <div className="inputArtist">
+            <input
+              type="text"
+              data-testid="search-artist-input"
+              placeholder="Digite o nome do(a) artista ou banda"
+              name="artist"
+              onChange={handleChange}
+              className="pesquisador"
+            />
+          </div>
           <button
             data-testid="search-artist-button"
-            disabled={ inputValue.length < 2 }
-            onClick={ handleCLick }
+            disabled={inputValue.length < 2}
+            onClick={handleCLick}
+            className="pesquisaB"
           >
             Pesquisar
           </button>
@@ -53,40 +61,78 @@ function Search() {
       )}
       {mappedAlbuns && (searchedAlbuns.length > 1 ? (
         <div>
-          <input
-            type="text"
-            data-testid="search-artist-input"
-            placeholder="Digite o nome do(a) artista ou banda"
-            name="artist"
-            onChange={ handleChange }
-          />
-          <button
-            data-testid="search-artist-button"
-            disabled={ inputValue.length < 2 }
-            onClick={ handleCLick }
-          >
-            Pesquisar
-          </button>
-          <p>{`Resultado de álbuns de: ${inputValue}`}</p>
-          {searchedAlbuns.map((album) => (
-            <div key={ album.collectionId }>
-              <img
-                src={ album.artworkUrl100 }
-                key={ album.collectionId }
-                alt={ album.collectionName }
+          <div className="searchMain">
+            <div className="inputArtist">
+              <input
+                type="text"
+                data-testid="search-artist-input"
+                placeholder="Digite o nome do(a) artista ou banda"
+                name="artist"
+                onChange={handleChange}
+                className="pesquisador"
               />
-              <p>{ album.artistName }</p>
-              <Link
-                to={ `/album/${album.collectionId}` }
-                data-testid={ `link-to-album-${album.collectionId}` }
-              >
-                { album.collectionName }
-              </Link>
             </div>
-          ))}
+            <button
+              data-testid="search-artist-button"
+              disabled={inputValue.length < 2}
+              onClick={handleCLick}
+              className="pesquisaB"
+            >
+              Pesquisar
+            </button>
+          </div>
+          <p className="defaultText">{`Resultado de álbuns de: ${inputValue}`}</p>
+          <div className="albunsDiv">
+            {searchedAlbuns.map((album) => (
+              <div key={album.collectionId} className="cover">
+                <img
+                  src={album.artworkUrl100}
+                  key={album.collectionId}
+                  alt={album.collectionName}
+                  className="imageCover"
+                />
+                <Link
+                  to={`/album/${album.collectionId}`}
+                  data-testid={`link-to-album-${album.collectionId}`}
+                  className="albumName"
+                >
+                  {album.collectionName}
+                </Link>
+                <p className="artistName">{album.artistName}</p>
+              </div>
+            ))}
+          </div>
         </div>
-      ) : 'Nenhum álbum foi encontrado')}
+      ) : (
+        <div>
+          <div className="searchMain">
+            <div className="inputArtist">
+              <input
+                type="text"
+                data-testid="search-artist-input"
+                placeholder="Digite o nome do(a) artista ou banda"
+                name="artist"
+                onChange={handleChange}
+                className="pesquisador"
+              />
+            </div>
+            <button
+              data-testid="search-artist-button"
+              disabled={inputValue.length < 2}
+              onClick={handleCLick}
+              className="pesquisaB"
+            >
+              Pesquisar
+            </button>
+          </div>
+          <div className="nothingFound">
+            <img src={circleX} alt="" />
+            <p>Nenhum álbum foi encontrado</p>
+          </div>
+        </div>
+      ))}
     </div>
+
   );
 }
 

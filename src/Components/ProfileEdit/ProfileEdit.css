@@ -1,0 +1,133 @@
+.userImage {
+  background: lightgray -2.5px -2px / 111.25% 108.125% no-repeat;
+  flex-shrink: 0;
+  width: 192px;
+  height: 37px;
+  margin-top: 260px;
+  margin-left: 84px;
+  border-radius: 2px;
+  border: 1px solid #444955;
+  color: #444955;
+}
+
+.formEdit {
+  margin-left: 264.4px;
+  display: flex;
+  flex-direction: column;
+}
+
+.backEdit {
+  width: 1200px;
+  display: flex;
+  grid-template-columns: 260px 1fr;
+  background: url('./albumB.png');
+  background-size: cover;
+  position: relative;
+  bottom: -150px;
+  padding-top: 80px;
+  top: 0px;
+  height: 130px;
+  flex-direction: column;
+}
+
+.imgProfile {
+  position: absolute;
+  margin-left: 70px;
+  width: 240px;
+  height: 240px;
+  flex-shrink: 0;
+  border-radius: 240px;
+  box-shadow: -9px 8px 8px 0px rgba(68, 73, 85, 0.2);
+}
+
+.otherInputs {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 400px;
+}
+
+.description {
+  display: flex;
+width: 480px;
+height: 96px;
+justify-content: center;
+align-items: center;
+flex-shrink: 0;
+padding: 10px 10px;
+margin-top: -10px;
+margin-bottom: 15px;
+border: none;
+border-bottom: 1px solid var(--gray-700, #3D495C);
+background: lightgray -2.5px -2px / 111.25% 108.125% no-repeat;
+}
+
+.editH3 {
+  color: var(--gray-700, #3D495C);
+font-family: Epilogue;
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: 150%; /* 24px */
+text-align: start;
+}
+
+.editP {
+  color: var(--gray-700, #3D495C);
+font-family: Epilogue;
+font-size: 12px;
+font-style: normal;
+font-weight: 400;
+line-height: 150%; /* 18px */
+text-align: start;
+margin-top: -15px;
+margin-bottom: 13px;
+}
+
+.inputNome {
+  display: flex;
+padding: 8px 0px 8px 8px;
+flex-direction: column;
+align-items: flex-start;
+gap: 10px;
+flex: 1 0 0;
+width: 288px;
+border: none;
+border-bottom: 1px solid var(--gray-700, #3D495C);
+background: lightgray -2.5px -2px / 111.25% 108.125% no-repeat;
+}
+
+.inputEmail {
+  display: flex;
+  padding: 8px 0px 8px 8px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  flex: 1 0 0;
+  width: 288px;
+  border: none;
+  border-bottom: 1px solid var(--gray-700, #3D495C);
+  background: lightgray -2.5px -2px / 111.25% 108.125% no-repeat;
+}
+
+.saveButton {
+  width: 152px;
+height: 40px;
+flex-shrink: 0;
+border-radius: 100px;
+background: #003BE5;
+border: none;
+cursor: pointer;
+}
+
+.profEditLoader {
+  width: 1080px;
+  height: 100%;
+  flex-shrink: 0;
+  background: #dfe3e7;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-left: 264.4px;
+}

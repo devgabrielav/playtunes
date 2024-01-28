@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Loading from '../Loading/Loading';
 import { getUser } from '../../services/userAPI';
 import { UserType } from '../../types';
+import './Profile.css';
 
 function Profile() {
   const [isLoading, setIsLoading] = useState(false);
@@ -20,20 +21,26 @@ function Profile() {
 
   if (isLoading) {
     return (
-      <Loading />
+      <div className="profileLoader">
+        <Loading />
+      </div>
     );
   }
 
   return (
-    <div>
-      <img src={ userData?.image } alt="Foto usuário" data-testid="profile-image" />
-      <Link to="/profile/edit">Editar perfil</Link>
-      <h3>Nome</h3>
-      <p>{ userData?.name }</p>
-      <h3>Email</h3>
-      <p>{ userData?.email }</p>
-      <h3>Descrição</h3>
-      <p>{ userData?.description }</p>
+    <div className="dadosUser">
+      <div className="backProfile">
+      <img src={ userData?.image } alt="Foto usuário" data-testid="profile-image" className="profilePic"/>
+      </div>
+      <div className="divData">
+      <h3 className="h3Profile">Nome</h3>
+      <p className="pProfile">{ userData?.name }</p>
+      <h3 className="h3Profile">Email</h3>
+      <p className="pProfile">{ userData?.email }</p>
+      <h3 className="h3Profile">Descrição</h3>
+      <p className="pProfile descrip">{ userData?.description }</p>
+      <Link to="/profile/edit" className="editButton">Editar perfil</Link>
+      </div>
     </div>
   );
 }
