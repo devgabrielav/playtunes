@@ -1,10 +1,12 @@
 .navegacao {
+  align-items: center;
   background-color: white;
-  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
   height: 720px;
   padding: 7px;
   text-align: center;
-  width: 250px;
+  width: 180px;
   position: fixed;
   top: 0;
 }
@@ -22,8 +24,8 @@
 .imgAndName {
   align-items: center;
   display: flex;
-  justify-content: center;
-  margin-top: -20px;
+  justify-content: start;
+  margin-top: 80px;
 }
 
 .imageUser {
@@ -36,7 +38,7 @@
 }
 
 .navs {
-  align-items: center;
+  align-items: start;
   color: #444955;
   display: flex;
   flex-direction: column;
@@ -47,21 +49,26 @@
   letter-spacing: 0.48px;
   line-height: normal;
   margin: auto;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   padding: 1px 5px;
-  text-align: left;
+  text-align: center;
   text-decoration: none;
   text-transform: capitalize;
-  width: 200px;
+  width: 100px;
 }
 
 .navsCont {
+  align-items: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
   margin-bottom: 200px;
-  text-align: center;
+  text-align: left;
 }
 
 .logoNavH {
-  margin-bottom: 150px;
+  margin-bottom: 30px;
+  width: 200px;
 }
 
 .headerLoading {

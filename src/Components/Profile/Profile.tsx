@@ -30,16 +30,21 @@ function Profile() {
   return (
     <div className="dadosUser">
       <div className="backProfile">
-      <img src={ userData?.image } alt="Foto usuário" data-testid="profile-image" className="profilePic"/>
+        <img
+          src={ userData?.image }
+          alt="Foto usuário"
+          data-testid="profile-image"
+          className="profilePic"
+        />
       </div>
       <div className="divData">
-      <h3 className="h3Profile">Nome</h3>
-      <p className="pProfile">{ userData?.name }</p>
-      <h3 className="h3Profile">Email</h3>
-      <p className="pProfile">{ userData?.email }</p>
-      <h3 className="h3Profile">Descrição</h3>
-      <p className="pProfile descrip">{ userData?.description }</p>
-      <Link to="/profile/edit" className="editButton">Editar perfil</Link>
+        <h3 className="h3Profile">Nome</h3>
+        <p className="pProfile">{ userData?.name }</p>
+        <h3 className="h3Profile">Email</h3>
+        <p className="pProfile">{ userData?.email }</p>
+        <h3 className="h3Profile">Descrição</h3>
+        <p className="pProfile descrip">{ userData?.description }</p>
+        <Link to="/profile/edit" className="editButton">Editar perfil</Link>
       </div>
     </div>
   );

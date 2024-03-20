@@ -8,14 +8,13 @@ body {
   background-size: cover;
   left: -2753px;
   text-align: center;
-  width: 1096.1px;
+  width: 250vh;
   height: 250px;
   flex-shrink: 0;
   display: flex;
   margin: auto;
   justify-content: center;
   align-items: center;
-  margin-left: 264.4px;
 }
 
 .albunsDiv {

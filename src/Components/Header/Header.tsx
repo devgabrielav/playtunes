@@ -1,12 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { getUser } from '../../services/userAPI';
 import { UserType } from '../../types';
 import Loading from '../Loading/Loading';
 import logo from './logo.png';
 import './Header.css';
+import ProfilePicContext from '../../context/ProfilePicContext';
 
 function Header() {
+  const profileContext = useContext(ProfilePicContext);
   const [user, setUser] = useState<UserType>();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -30,7 +32,9 @@ function Header() {
 
   return (
     <header data-testid="header-component" className="navegacao">
-      <img src={ logo } alt="" className="logoNavH" />
+      <NavLink to="/search">
+        <img src={ logo } alt="" className="logoNavH" />
+      </NavLink>
       <br />
       <div className="navsCont">
         <NavLink
@@ -38,26 +42,30 @@ function Header() {
           data-testid="link-to-search"
           className="navs"
         >
-          🔍 Pesquisa
+          Pesquisa
         </NavLink>
         <NavLink
           to="/favorites"
           data-testid="link-to-favorites"
           className="navs"
         >
-          ⭐ Favoritas
+          Favoritas
         </NavLink>
         <NavLink
           to="/profile"
           data-testid="link-to-profile"
           className="navs"
         >
-          👤 Perfil
+          Perfil
         </NavLink>
-      </div>
-      <div className="imgAndName">
-        <img src={ user?.image } alt="" className="imageUser" />
-        <span data-testid="header-user-name" className="userSpan">{ user?.name }</span>
+        <div className="imgAndName">
+          <img
+            src={ profileContext.photo }
+            alt=""
+            className="imageUser"
+          />
+          <span data-testid="header-user-name" className="userSpan">{ user?.name }</span>
+        </div>
       </div>
     </header>
   );

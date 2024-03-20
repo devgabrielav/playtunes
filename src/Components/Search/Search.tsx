@@ -45,14 +45,14 @@ function Search() {
               data-testid="search-artist-input"
               placeholder="Digite o nome do(a) artista ou banda"
               name="artist"
-              onChange={handleChange}
+              onChange={ handleChange }
               className="pesquisador"
             />
           </div>
           <button
             data-testid="search-artist-button"
-            disabled={inputValue.length < 2}
-            onClick={handleCLick}
+            disabled={ inputValue.length < 2 }
+            onClick={ handleCLick }
             className="pesquisaB"
           >
             Pesquisar
@@ -68,14 +68,14 @@ function Search() {
                 data-testid="search-artist-input"
                 placeholder="Digite o nome do(a) artista ou banda"
                 name="artist"
-                onChange={handleChange}
+                onChange={ handleChange }
                 className="pesquisador"
               />
             </div>
             <button
               data-testid="search-artist-button"
-              disabled={inputValue.length < 2}
-              onClick={handleCLick}
+              disabled={ inputValue.length < 2 }
+              onClick={ handleCLick }
               className="pesquisaB"
             >
               Pesquisar
@@ -84,18 +84,18 @@ function Search() {
           <p className="defaultText">{`Resultado de álbuns de: ${inputValue}`}</p>
           <div className="albunsDiv">
             {searchedAlbuns.map((album) => (
-              <div key={album.collectionId} className="cover">
-                <img
-                  src={album.artworkUrl100}
-                  key={album.collectionId}
-                  alt={album.collectionName}
-                  className="imageCover"
-                />
+              <div key={ album.collectionId } className="cover">
                 <Link
-                  to={`/album/${album.collectionId}`}
-                  data-testid={`link-to-album-${album.collectionId}`}
+                  to={ `/album/${album.collectionId}` }
+                  data-testid={ `link-to-album-${album.collectionId}` }
                   className="albumName"
                 >
+                  <img
+                    src={ album.artworkUrl100 }
+                    key={ album.collectionId }
+                    alt={ album.collectionName }
+                    className="imageCover"
+                  />
                   {album.collectionName}
                 </Link>
                 <p className="artistName">{album.artistName}</p>
@@ -112,21 +112,21 @@ function Search() {
                 data-testid="search-artist-input"
                 placeholder="Digite o nome do(a) artista ou banda"
                 name="artist"
-                onChange={handleChange}
+                onChange={ handleChange }
                 className="pesquisador"
               />
             </div>
             <button
               data-testid="search-artist-button"
-              disabled={inputValue.length < 2}
-              onClick={handleCLick}
+              disabled={ inputValue.length < 2 }
+              onClick={ handleCLick }
               className="pesquisaB"
             >
               Pesquisar
             </button>
           </div>
           <div className="nothingFound">
-            <img src={circleX} alt="" />
+            <img src={ circleX } alt="" />
             <p>Nenhum álbum foi encontrado</p>
           </div>
         </div>

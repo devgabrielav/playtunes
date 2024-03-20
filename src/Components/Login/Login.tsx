@@ -30,9 +30,9 @@ function Login() {
 
   if (isLoading) {
     return (
-    <div className="loginLoader">
-      <Loading />
-    </div>
+      <div className="loginLoader">
+        <Loading />
+      </div>
     );
   }
 
@@ -54,7 +54,7 @@ function Login() {
           disabled={ isChecked }
           onClick={ handleClick }
           className="button"
-          style={isChecked? {color: 'grey'} : {color: 'white'}}
+          style={ isChecked ? { color: 'grey' } : { color: 'white' } }
         >
           Entrar
         </button>

@@ -1,30 +1,22 @@
 {
-  "name": "trybetunes",
+  "name": "playtunes",
   "version": "1.0.1",
   "private": true,
-  "engines": {
-    "node": "16 || 18"
-  },
   "dependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.3.0",
-    "@testing-library/user-event": "^13.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.10.0",
+    "react-router-dom": "^6.22.3",
     "react-spinners": "^0.13.8",
-    "validator": "^13.9.0",
+    "validator": "^13.11.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "build": "vite build",
-    "test": "vitest",
     "lint:styles": "npx stylelint '**/*.css'",
     "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json . --ext .js,.jsx,.ts,.tsx",
     "dev": "vite --open",
     "start": "vite --open",
-    "preview": "vite preview",
-    "coverage": "vitest run --coverage --watch=false"
+    "preview": "vite preview"
   },
   "browserslist": {
     "production": [
@@ -39,20 +31,16 @@
     ]
   },
   "devDependencies": {
-    "@testing-library/dom": "^8.20.0",
-    "@trybe/eslint-config-frontend": "^1.11.3",
+    "@trybe/eslint-config-frontend": "^1.11.4",
     "@types/react-router-dom": "^5.3.3",
-    "@types/validator": "^13.7.17",
-    "@vitejs/plugin-react-swc": "^3.1.0",
-    "@vitest/coverage-c8": "^0.30.1",
-    "@vitest/coverage-istanbul": "^0.28.4",
-    "jsdom": "^21.1.0",
+    "@types/validator": "^13.11.9",
+    "@vitejs/plugin-react-swc": "^3.6.0",
+    "jsdom": "^21.1.2",
     "prop-types": "^15.8.1",
-    "stylelint": "^14.11.0",
+    "stylelint": "^14.16.1",
     "stylelint-config-standard": "^28.0.0",
-    "stylelint-order": "5.0.0",
-    "typescript": "^5.0.4",
-    "vite": "^4.1.1",
-    "vitest": "^0.30.1"
+    "stylelint-order": "^5.0.0",
+    "typescript": "^5.4.2",
+    "vite": "^4.5.2"
   }
 }
