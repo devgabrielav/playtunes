@@ -47,25 +47,25 @@ function Album() {
   return (
     <div>
       {showInfo && (
-        <div style={{background: '#dfe3e7'}}>
+        <div style={ { background: '#dfe3e7' } }>
           <div className="albumDetails">
-          <img
-            src={ albumAndArtist.artworkUrl100 }
-            alt={ albumAndArtist.collectionName }
-            className="capa"
-          />
-          <div className="artistAndAlbum">
-          <p data-testid="album-name" className="albumNameA">{ albumAndArtist.collectionName }</p>
-          <p data-testid="artist-name" className="artistNameA">{ albumAndArtist.artistName }</p>
-          </div>
+            <img
+              src={ albumAndArtist.artworkUrl100 }
+              alt={ albumAndArtist.collectionName }
+              className="capa"
+            />
+            <div className="artistAndAlbum">
+              <p data-testid="album-name" className="albumNameA">{ albumAndArtist.collectionName }</p>
+              <p data-testid="artist-name" className="artistNameA">{ albumAndArtist.artistName }</p>
+            </div>
           </div>
           <div className="albumSongs">
-          {musicsToBe.map((music) => (
-            <MusicCard
-              musics={ music }
-              key={ music.trackId }
-            />
-          ))}
+            {musicsToBe.map((music) => (
+              <MusicCard
+                musics={ music }
+                key={ music.trackId }
+              />
+            ))}
           </div>
         </div>
       )}

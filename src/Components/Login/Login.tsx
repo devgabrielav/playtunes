@@ -14,7 +14,7 @@ function Login() {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
     setInputValue(value);
-    if (inputValue.length < 2) {
+    if (inputValue.length <= 2) {
       setIsChecked(true);
     } else {
       setIsChecked(false);

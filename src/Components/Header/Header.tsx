@@ -1,34 +1,11 @@
-import { useEffect, useState, useContext } from 'react';
+import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
-import { getUser } from '../../services/userAPI';
-import { UserType } from '../../types';
-import Loading from '../Loading/Loading';
 import logo from './logo.png';
 import './Header.css';
 import ProfilePicContext from '../../context/ProfilePicContext';
 
 function Header() {
   const profileContext = useContext(ProfilePicContext);
-  const [user, setUser] = useState<UserType>();
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    setIsLoading(true);
-    const fetch = async () => {
-      const usuario = await getUser();
-      setUser(usuario);
-      setIsLoading(false);
-    };
-    fetch();
-  }, []);
-
-  if (isLoading) {
-    return (
-      <div className="headerLoading">
-        <Loading />
-      </div>
-    );
-  }
 
   return (
     <header data-testid="header-component" className="navegacao">
@@ -64,7 +41,12 @@ function Header() {
             alt=""
             className="imageUser"
           />
-          <span data-testid="header-user-name" className="userSpan">{ user?.name }</span>
+          <span
+            data-testid="header-user-name"
+            className="userSpan"
+          >
+            { profileContext.name }
+          </span>
         </div>
       </div>
     </header>

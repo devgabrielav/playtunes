@@ -4,7 +4,8 @@ const USER_KEY = 'user';
 const TIMEOUT = 1500;
 const SUCCESS_STATUS = 'OK';
 
-const readUser = (): UserType => JSON.parse(localStorage.getItem(USER_KEY) as string);
+export const readUser = (): UserType => JSON
+  .parse(localStorage.getItem(USER_KEY) as string);
 const saveUser = (user: UserType) => localStorage.setItem(USER_KEY, JSON.stringify(user));
 
 const simulateRequest = (response: any) => (callback: (param: any) => void) => {

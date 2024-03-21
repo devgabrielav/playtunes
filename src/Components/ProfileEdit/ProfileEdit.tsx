@@ -1,16 +1,19 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import isEmail from 'validator/lib/isEmail';
 import Loading from '../Loading/Loading';
 import { getUser, updateUser } from '../../services/userAPI';
 import { UserType } from '../../types';
 import './ProfileEdit.css';
+import ProfilePicContext from '../../context/ProfilePicContext';
+import defaultProfilePic from '../../images/default-user.png';
 
 function ProfileEdit() {
   const [isLoading, setIsLoading] = useState(false);
   const [inputValue, setInputValue] = useState<UserType>({} as UserType);
   const [isDisabled, setIsDisabled] = useState(true);
   const navigate = useNavigate();
+  const profileContext = useContext(ProfilePicContext);
 
   const validateUser = (user: UserType) => {
     if (isEmail(user.email)
@@ -22,9 +25,11 @@ function ProfileEdit() {
     } else {
       setIsDisabled(true);
     }
-  }
+  };
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     const { value, name } = event.target;
     setInputValue({
       ...inputValue,
@@ -38,6 +43,11 @@ function ProfileEdit() {
     await updateUser(inputValue);
     navigate('/profile');
     setIsLoading(false);
+    profileContext.changeName(inputValue.name);
+    if (inputValue.image.length === 0) {
+      profileContext.changePic(defaultProfilePic);
+    }
+    profileContext.changePic(inputValue.image);
   };
 
   useEffect(() => {
@@ -62,14 +72,14 @@ function ProfileEdit() {
   return (
     <form action="" className="formEdit">
       <div className="backEdit">
-        <img src={inputValue.image} alt="" className="imgProfile" />
+        <img src={ inputValue.image } alt="" className="imgProfile" />
         <input
           type="url"
           data-testid="edit-input-image"
-          onChange={handleChange}
+          onChange={ handleChange }
           name="image"
           placeholder="Insira um link"
-          value={inputValue.image}
+          value={ inputValue.image }
           className="userImage"
         />
       </div>
@@ -80,9 +90,9 @@ function ProfileEdit() {
           type="text"
           name="name"
           data-testid="edit-input-name"
-          onChange={handleChange}
+          onChange={ handleChange }
           placeholder="Digite seu usuário"
-          value={inputValue.name}
+          value={ inputValue.name }
           className="inputNome"
         />
         <h3 className="editH3">E-mail</h3>
@@ -91,26 +101,26 @@ function ProfileEdit() {
           type="text"
           name="email"
           data-testid="edit-input-email"
-          onChange={handleChange}
+          onChange={ handleChange }
           placeholder="Digite seu email"
-          value={inputValue.email}
+          value={ inputValue.email }
           className="inputEmail"
         />
         <h3 className="editH3">Descrição</h3>
         <textarea
           name="description"
           data-testid="edit-input-description"
-          onChange={(event) => handleChange(event)}
+          onChange={ (event) => handleChange(event) }
           placeholder="Sobre mim"
-          value={inputValue.description}
+          value={ inputValue.description }
           className="description"
         />
         <button
           data-testid="edit-button-save"
-          disabled={isDisabled}
-          onClick={handleClick}
+          disabled={ isDisabled }
+          onClick={ handleClick }
           className="saveButton"
-          style={isDisabled? {color: 'grey'} : {color: 'white'}}
+          style={ isDisabled ? { color: 'grey' } : { color: 'white' } }
         >
           Salvar
         </button>
