@@ -38,7 +38,7 @@ function Header() {
         <div className="imgAndName">
           <img
             src={ profileContext.photo }
-            alt=""
+            alt="Profile Pic"
             className="imageUser"
           />
           <span

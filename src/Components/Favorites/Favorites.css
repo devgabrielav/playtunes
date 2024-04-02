@@ -7,6 +7,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  width: 1080px;
 }
 
 .favMusics {
@@ -14,25 +15,22 @@
 }
 
 .title {
-  width: 1080px;
-  display: flex;
-  grid-template-columns: 260px 1fr;
-  background: url('./albumB.png');
-  background-size: cover;
-  position: relative;
-  bottom: -150px;
-  padding-top: 90px;
-  top: 0px;
-  height: 130px;
+  box-shadow: 0 10px 10px 5px rgba(0, 0, 0, 0.1);
   text-align: center;
+  width: 200vh;
+  height: 30vh;
+  flex-shrink: 0;
+  display: flex;
+  margin-left: -80px;
   justify-content: center;
+  align-items: center;
 }
 
 .favText {
   width: 337.2px;
   height: 24.894px;
   flex-shrink: 0;
-  color: white;
+  color: black;
   text-align: center;
   font-family: Epilogue;
   font-size: 30px;

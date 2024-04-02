@@ -18,13 +18,23 @@ function Search() {
     setInputValue(value);
   };
 
-  const handleCLick = async () => {
+  const handleSearch = async () => {
     setIsLoading(true);
     const albuns = await searchAlbumsAPI(inputValue);
     setInputAndButton(false);
     setSearchedAlbuns(albuns);
     setMappedAlbuns(true);
     setIsLoading(false);
+  };
+
+  const handleCLick = async () => {
+    await handleSearch();
+  };
+
+  const handleEnterPress = async (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      await handleSearch();
+    }
   };
 
   if (isLoading) {
@@ -46,6 +56,7 @@ function Search() {
               placeholder="Digite o nome do(a) artista ou banda"
               name="artist"
               onChange={ handleChange }
+              onKeyDown={ handleEnterPress }
               className="pesquisador"
             />
           </div>
@@ -70,6 +81,7 @@ function Search() {
                 name="artist"
                 onChange={ handleChange }
                 className="pesquisador"
+                onKeyDown={ handleEnterPress }
               />
             </div>
             <button
@@ -114,6 +126,7 @@ function Search() {
                 name="artist"
                 onChange={ handleChange }
                 className="pesquisador"
+                onKeyDown={ handleEnterPress }
               />
             </div>
             <button

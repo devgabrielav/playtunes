@@ -55,8 +55,18 @@ function Album() {
               className="capa"
             />
             <div className="artistAndAlbum">
-              <p data-testid="album-name" className="albumNameA">{ albumAndArtist.collectionName }</p>
-              <p data-testid="artist-name" className="artistNameA">{ albumAndArtist.artistName }</p>
+              <p
+                data-testid="album-name"
+                className="albumNameA"
+              >
+                { albumAndArtist.collectionName }
+              </p>
+              <p
+                data-testid="artist-name"
+                className="artistNameA"
+              >
+                { albumAndArtist.artistName }
+              </p>
             </div>
           </div>
           <div className="albumSongs">

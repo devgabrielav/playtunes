@@ -54,35 +54,40 @@ function MusicCard({ musics, handleClick = undefined }: MusicCardType) {
       <span className="songName">{ trackName }</span>
       <div className="audioAndCheck">
         <div className="audioBack">
-      <audio data-testid="audio-component" src={ previewUrl } controls className="audio">
-        { trackName }
-        <track kind="captions" />
-        O seu navegador não suporta o elemento
-        {' '}
-        <code>audio</code>
-      </audio>
+          <audio
+            data-testid="audio-component"
+            src={ previewUrl }
+            controls
+            className="audio"
+          >
+            { trackName }
+            <track kind="captions" />
+            O seu navegador não suporta o elemento
+            {' '}
+            <code>audio</code>
+          </audio>
         </div>
-      <label
-        htmlFor={ trackName }
-        data-testid={ `checkbox-music-${trackId}` }
-        className="heart"
+        <label
+          htmlFor={ trackName }
+          data-testid={ `checkbox-music-${trackId}` }
+          className="heart"
         >
-        <img
-          src={ isChecked ? (checked) : (empty) }
-          alt="favorite"
+          <img
+            src={ isChecked ? (checked) : (empty) }
+            alt="favorite"
           />
-        <input
-          type="checkbox"
-          name={ trackName }
-          id={ trackName }
-          checked={ isChecked }
-          onChange={ heartFull }
+          <input
+            type="checkbox"
+            name={ trackName }
+            id={ trackName }
+            checked={ isChecked }
+            onChange={ heartFull }
           // onClick={(event) =>  handleClick? handleClick(event) : (null)}
-          onClick={ handleClick }
-          style={ { appearance: 'none' } }
+            onClick={ handleClick }
+            style={ { appearance: 'none' } }
           />
-      </label>
-          </div>
+        </label>
+      </div>
     </div>
   );
 }

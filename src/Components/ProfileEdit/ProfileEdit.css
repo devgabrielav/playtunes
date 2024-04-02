@@ -3,8 +3,8 @@
   flex-shrink: 0;
   width: 192px;
   height: 37px;
-  margin-top: 260px;
-  margin-left: 84px;
+  margin-top: 450px;
+  margin-left: -950px;
   border-radius: 2px;
   border: 1px solid #444955;
   color: #444955;
@@ -17,22 +17,22 @@
 }
 
 .backEdit {
-  width: 1200px;
+  box-shadow: 0 10px 10px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 250vh;
+  height: 30vh;
+  flex-shrink: 0;
   display: flex;
-  grid-template-columns: 260px 1fr;
-  background: url('./albumB.png');
-  background-size: cover;
-  position: relative;
-  bottom: -150px;
-  padding-top: 80px;
-  top: 0px;
-  height: 130px;
-  flex-direction: column;
+  margin: auto;
+  margin-left: -100px;
+  justify-content: center;
+  align-items: center;
 }
 
 .imgProfile {
   position: absolute;
-  margin-left: 70px;
+  margin-left: -950px;
+  margin-top: 150px;
   width: 240px;
   height: 240px;
   flex-shrink: 0;
@@ -111,13 +111,16 @@ background: lightgray -2.5px -2px / 111.25% 108.125% no-repeat;
 }
 
 .saveButton {
-  width: 152px;
-height: 40px;
-flex-shrink: 0;
-border-radius: 100px;
-background: #003BE5;
-border: none;
-cursor: pointer;
+  color: white;
+  width: 114px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  background-color: rgb(127, 126, 133);
+  background: linear-gradient(330deg, rgb(104, 101, 101) 15%, rgb(64, 64, 65) 60%);
+  margin-top: -10px;
+  cursor: pointer;
+  border: none;
 }
 
 .profEditLoader {

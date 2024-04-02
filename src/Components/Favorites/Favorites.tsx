@@ -39,13 +39,13 @@ function Favorites() {
         <p className="favText">Músicas Favoritas</p>
       </div>
       <div className="musicsFav">
-      {favoriteMusics.map((music) => (
-        <MusicCard
-          handleClick={ fetchSongs }
-          musics={ music }
-          key={ music.trackName }
-        />
-      ))}
+        {favoriteMusics.map((music) => (
+          <MusicCard
+            handleClick={ fetchSongs }
+            musics={ music }
+            key={ music.trackName }
+          />
+        ))}
 
       </div>
     </div>

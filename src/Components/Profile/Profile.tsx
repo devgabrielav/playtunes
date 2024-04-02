@@ -4,6 +4,7 @@ import Loading from '../Loading/Loading';
 import { getUser } from '../../services/userAPI';
 import { UserType } from '../../types';
 import './Profile.css';
+import defaultUser from '../../images/default-user.png';
 
 function Profile() {
   const [isLoading, setIsLoading] = useState(false);
@@ -31,7 +32,7 @@ function Profile() {
     <div className="dadosUser">
       <div className="backProfile">
         <img
-          src={ userData?.image }
+          src={ userData && userData.image ? userData.image : defaultUser }
           alt="Foto usuário"
           data-testid="profile-image"
           className="profilePic"

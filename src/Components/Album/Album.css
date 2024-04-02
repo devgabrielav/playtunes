@@ -15,37 +15,36 @@
 }
 
 .albumDetails {
+  box-shadow: 0 10px 10px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 250vh;
+  height: 30vh;
+  flex-shrink: 0;
   display: flex;
-  margin-left: 264.4px;
-  grid-template-columns: 260px 1fr;
-  background: url('./albumB.png');
-  background-size: cover;
-  position: relative;
-  bottom: -150px;
-  padding-top: 140px;
-  top: 0px;
-  height: 130px;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
 }
 
 .capa {
-  position: absolute;
-  margin-left: 70px;
-  width: 240px;
-  height: 240px;
+  width: 220px;
+  height: 220px;
   flex-shrink: 0;
   border-radius: 12px;
   box-shadow: -9px 8px 8px 0px rgba(68, 73, 85, 0.2);
+  margin-top: 100px;
+  margin-left: -350px;
 }
 
 .artistAndAlbum {
-  margin-left: 350px;
+  margin-left: 30px;
   margin-top: -10px;
   text-align: start;
 }
 
 .albumNameA {
   width: 270px;
-  color: #fff;
+  color: black;
   font-family: Epilogue;
   font-size: 20px;
   font-style: normal;
@@ -54,8 +53,7 @@
 }
 
 .artistNameA {
-  color: white;
-  color: #fff;
+  color: black;
   font-family: Epilogue;
   font-size: 14px;
   font-style: normal;

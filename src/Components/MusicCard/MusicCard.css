@@ -8,6 +8,7 @@
   background: #dfe3e7;
   justify-content: space-between;
   border-bottom: 1px solid #CCD4E1;
+  width: 110vh;
 }
 
 .audioAndCheck {
@@ -21,7 +22,7 @@
   border-radius: 42.386px;
   margin-bottom: 13px;
   margin-top: 13px;
-  width: 300px;
+  width: 50vh;
 }
 
 .songName {
