@@ -1,47 +1,66 @@
-body {
-  text-align: center;
-}
-
 .loginMain {
-  background: url('./login.png');
-  background-size: cover;
-  height: 691px;
+  align-items: center;
+  background-image: url('../../images/login.png');
+  display: flex;
+  justify-content: center;
+  height: 100vh;
   left: -2753px;
   text-align: center;
   top: 591px;
 }
 
 .box {
-  background: white;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(127, 126, 133);
+  background: linear-gradient(330deg, rgb(104, 101, 101) 15%, rgb(64, 64, 65) 60%);
   border-radius: 20px;
-  box-shadow: 1px 1px 26px 1px rgba(68, 73, 85, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   height: 450px;
   margin: 135px 265px;
+  padding: 10px 0px 10px 0px;
   position: fixed;
-  width: 750px;
+  width: 120vh;
 }
 
 .logo {
-  margin: 110px 281px 50px 281.81px;
+  background: rgb(189, 189, 192);
+  background: linear-gradient(330deg, rgb(172, 168, 168) 15%, rgb(128, 128, 129) 60%);
+  border-radius: 20px;
+  box-shadow: 1px 1px 26px 1px rgba(68, 73, 85, 0.2);
+  margin-bottom: 40px;
+  margin-top: 20px;
+  width: 220px;
 }
 
 .login {
-  border: 1px solid #003be5;
+  background: rgb(159, 159, 161);
   border-radius: 100px;
-  color: #003be5;
+  border: none;
+  backdrop-filter: blur(5.3px);
+  -webkit-backdrop-filter: blur(5.3px);
+  color: black;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   height: 40px;
   line-height: normal;
-  margin-bottom: 20px;
+  margin-top: 20px;
+  outline: none;
   text-align: center;
-  width: 400px;
+  width: 300px;
+}
+
+.login::placeholder {
+  color: rgb(31, 31, 31);
 }
 
 .button {
-  background: #003be5;
+  background-color: rgb(127, 126, 133);
+  background: linear-gradient(330deg, rgb(104, 101, 101) 15%, rgb(64, 64, 65) 60%);
   border-radius: 100px;
+  border: none;
   cursor: pointer;
   font-size: 14px;
   font-style: normal;
@@ -51,7 +70,7 @@ body {
   line-height: normal;
   text-align: center;
   text-transform: uppercase;
-  width: 400px;
+  width: 200px;
 }
 
 .loginLoader {

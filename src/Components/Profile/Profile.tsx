@@ -22,7 +22,7 @@ function Profile() {
 
   if (isLoading) {
     return (
-      <div className="profileLoader">
+      <div className="dadosUser">
         <Loading />
       </div>
     );

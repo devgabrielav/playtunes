@@ -39,7 +39,7 @@ function Search() {
 
   if (isLoading) {
     return (
-      <div className="loadingSearch">
+      <div className="searchMain">
         <Loading />
       </div>
     );

@@ -43,7 +43,7 @@ function MusicCard({ musics, handleClick = undefined }: MusicCardType) {
 
   if (isLoading) {
     return (
-      <div className="cardLoader">
+      <div className="card">
         <Loading />
       </div>
     );

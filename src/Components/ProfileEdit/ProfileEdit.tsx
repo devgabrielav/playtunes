@@ -63,7 +63,7 @@ function ProfileEdit() {
 
   if (isLoading) {
     return (
-      <div className="profEditLoader">
+      <div className="formEdit">
         <Loading />
       </div>
     );

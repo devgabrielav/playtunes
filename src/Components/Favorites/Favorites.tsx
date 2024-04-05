@@ -27,7 +27,7 @@ function Favorites() {
 
   if (isLoading) {
     return (
-      <div className="favLoading">
+      <div className="favMusics">
         <Loading />
       </div>
     );

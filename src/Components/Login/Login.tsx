@@ -30,7 +30,7 @@ function Login() {
 
   if (isLoading) {
     return (
-      <div className="loginLoader">
+      <div className="loginMain">
         <Loading />
       </div>
     );

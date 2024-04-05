@@ -39,7 +39,7 @@ function Album() {
 
   if (isLoading) {
     return (
-      <div className="albumLoadin">
+      <div className="albumDetails">
         <Loading />
       </div>
     );
