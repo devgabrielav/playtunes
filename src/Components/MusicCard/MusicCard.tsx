@@ -82,7 +82,6 @@ function MusicCard({ musics, handleClick = undefined }: MusicCardType) {
             id={ trackName }
             checked={ isChecked }
             onChange={ heartFull }
-          // onClick={(event) =>  handleClick? handleClick(event) : (null)}
             onClick={ handleClick }
             style={ { appearance: 'none' } }
           />

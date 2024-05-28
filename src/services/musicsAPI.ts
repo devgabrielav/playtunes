@@ -1,9 +1,15 @@
 import { AlbumType, SongType } from '../types';
 
 const getMusics = async (id: string): Promise<[AlbumType, ...SongType[]]> => {
-  const request = await fetch(`https://itunes.apple.com/lookup?id=${id}&entity=song`);
-  const requestJson = await request.json();
-  return requestJson.results;
+  try {
+    const url = `https://playtunes-psi.vercel.app/api/itunes-proxy?id=${id}&entity=song`
+    const request = await fetch(url);
+    const requestJson = await request.json();
+    return requestJson.results;
+  } catch (error) {
+    console.error('Error fetching data:', error)
+    throw new Error();
+  }
 };
 
 export default getMusics;
