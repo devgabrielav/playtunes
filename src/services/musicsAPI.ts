@@ -2,7 +2,7 @@ import { AlbumType, SongType } from '../types';
 
 const getMusics = async (id: string): Promise<[AlbumType, ...SongType[]]> => {
   try {
-    const url = `https://playtunes-psi.vercel.app/api/itunes-proxy?id=${id}&entity=song`
+    const url = `/api/itunes-proxy?id=${id}&entity=song`
     const request = await fetch(url);
     const requestJson = await request.json();
     return requestJson.results;
