@@ -44,7 +44,7 @@ function ProfileEdit() {
     validateUser(inputValue);
   };
 
-  const handleClick = async () => {
+  const handleSubmit= async () => {
     setIsLoading(true);
     navigate('/profile');
     setIsLoading(false);
@@ -74,12 +74,11 @@ function ProfileEdit() {
   }
 
   return (
-    <form action="" className="formEdit">
+    <form onSubmit={ handleSubmit } className="formEdit">
       <div className="backEdit">
         <img src={ inputValue.image } alt="" className="imgProfile" />
         <input
           type="url"
-          data-testid="edit-input-image"
           onChange={ handleChange }
           name="image"
           placeholder="Insira um link"
@@ -93,7 +92,6 @@ function ProfileEdit() {
         <input
           type="text"
           name="name"
-          data-testid="edit-input-name"
           onChange={ handleChange }
           placeholder="Digite seu usuário"
           value={ inputValue.name }
@@ -104,7 +102,6 @@ function ProfileEdit() {
         <input
           type="text"
           name="email"
-          data-testid="edit-input-email"
           onChange={ handleChange }
           placeholder="Digite seu email"
           value={ inputValue.email }
@@ -113,16 +110,13 @@ function ProfileEdit() {
         <h3 className="editH3">Descrição</h3>
         <textarea
           name="description"
-          data-testid="edit-input-description"
           onChange={ (event) => handleChange(event) }
           placeholder="Sobre mim"
           value={ inputValue.description }
           className="description"
         />
         <button
-          data-testid="edit-button-save"
           disabled={ isDisabled }
-          onClick={ handleClick }
           className="saveButton"
           style={ isDisabled ? { color: 'grey' } : { color: 'white' } }
         >
