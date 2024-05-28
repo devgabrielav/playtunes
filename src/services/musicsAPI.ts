@@ -1,7 +1,7 @@
 import { AlbumType, SongType } from '../types';
 
 const getMusics = async (id: string): Promise<[AlbumType, ...SongType[]]> => {
-  const request = await fetch(`https://itunes.apple.com/lookup?id=${id}&entity=song`);
+  const request = await fetch(`https://itunes.apple.com/lookup?id=${id}&entity=song`, { mode: 'no-cors' });
   const requestJson = await request.json();
   return requestJson.results;
 };
