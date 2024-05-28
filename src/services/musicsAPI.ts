@@ -1,14 +1,16 @@
 import { AlbumType, SongType } from '../types';
 
 const getMusics = async (id: string): Promise<[AlbumType, ...SongType[]]> => {
+  const corsProxyUrl = 'https://cors-anywhere.herokuapp.com/';
+  const apiUrl = `https://itunes.apple.com/lookup?id=${id}&entity=song`;
+
   try {
-    const url = `/api/itunes-proxy?id=${id}&entity=song`
-    const request = await fetch(url);
+    const request = await fetch(corsProxyUrl + apiUrl);
     const requestJson = await request.json();
     return requestJson.results;
   } catch (error) {
-    console.error('Error fetching data:', error)
-    throw new Error();
+    console.error('Error fetching data:', error);
+    throw error;
   }
 };
 

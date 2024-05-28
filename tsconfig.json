@@ -16,6 +16,6 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "src/api/itunes-proxy.ts"],
+  "include": ["src", "itunes-proxy.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
