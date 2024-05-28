@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createUser } from '../../services/userAPI';
 import Loading from '../Loading/Loading';
@@ -6,43 +6,32 @@ import './Login.css';
 import logo from './logo.png';
 
 function Login() {
-  const [inputValue, setInputValue] = useState<string>('');
-  const [isLoading, setIsLoading] = useState(false);
-  const [isChecked, setIsChecked] = useState(true);
+  const inputValue = useRef('');
+  const [isDisabled, setIsDisabled] = useState(true);
   const navigate = useNavigate();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
-    setInputValue(value);
-    if (inputValue.length <= 2) {
-      setIsChecked(true);
+    inputValue.current = value;
+    if (inputValue.current.length <= 2) {
+      setIsDisabled(true);
     } else {
-      setIsChecked(false);
+      setIsDisabled(false);
     }
   };
 
-  const handleClick = async () => {
-    setIsLoading(true);
-    await createUser({ name: inputValue });
+  const handleSubmit = () => {
+    createUser({ name: inputValue.current });
     navigate('/search');
-    setIsLoading(false);
   };
-
-  if (isLoading) {
-    return (
-      <div className="loginMain">
-        <Loading />
-      </div>
-    );
-  }
 
   return (
     <main className="loginMain">
-      <div className="box">
+      <form className="box" onSubmit={ handleSubmit }>
         <img src={ logo } alt="" className="logo" />
         <input
           type="text"
-          placeholder="Digite seu login"
+          placeholder="Type a username"
           data-testid="login-name-input"
           onChange={ handleChange }
           name="login"
@@ -51,14 +40,13 @@ function Login() {
         <br />
         <button
           data-testid="login-submit-button"
-          disabled={ isChecked }
-          onClick={ handleClick }
+          disabled={ isDisabled }
           className="button"
-          style={ isChecked ? { color: 'grey' } : { color: 'white' } }
+          style={ isDisabled ? { color: 'grey' } : { color: 'white' } }
         >
           Entrar
         </button>
-      </div>
+      </form>
     </main>
   );
 }

@@ -5,7 +5,6 @@ import Loading from '../Loading/Loading';
 import { getUser, updateUser } from '../../services/userAPI';
 import { UserType } from '../../types';
 import './ProfileEdit.css';
-import ProfilePicContext from '../../context/ProfilePicContext';
 import defaultProfilePic from '../../images/default-user.png';
 
 function ProfileEdit() {
@@ -13,7 +12,14 @@ function ProfileEdit() {
   const [inputValue, setInputValue] = useState<UserType>({} as UserType);
   const [isDisabled, setIsDisabled] = useState(true);
   const navigate = useNavigate();
-  const profileContext = useContext(ProfilePicContext);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const fetchedUser = await getUser();
+      setInputValue(fetchedUser);
+    };
+    fetchUser();
+  }, []);
 
   const validateUser = (user: UserType) => {
     if (isEmail(user.email)
@@ -40,14 +46,12 @@ function ProfileEdit() {
 
   const handleClick = async () => {
     setIsLoading(true);
-    await updateUser(inputValue);
     navigate('/profile');
     setIsLoading(false);
-    profileContext.changeName(inputValue.name);
     if (inputValue.image.length === 0) {
-      profileContext.changePic(defaultProfilePic);
+      updateUser({ ...inputValue, image: defaultProfilePic });
     }
-    profileContext.changePic(inputValue.image);
+    updateUser(inputValue);
   };
 
   useEffect(() => {

@@ -1,14 +1,34 @@
-import { useContext } from 'react';
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from './logo.png';
 import './Header.css';
-import ProfilePicContext from '../../context/ProfilePicContext';
+import { UserType } from '../../types';
+import { getUser } from '../../services/userAPI';
+import defaultProfilePicture from '../../images/default-user.png';
 
 function Header() {
-  const profileContext = useContext(ProfilePicContext);
+  const emptyUser = {
+    name: '',
+    email: '',
+    image: '',
+    description: '',
+  };
+  const [user, setUser] = useState<UserType>({ ...emptyUser, name: 'Guest' });
+
+  useState(() => {
+    const fetchUser = async () => {
+      const userFetched = await getUser();
+      if (userFetched.image.length === 0) {
+        setUser({ ...userFetched, image: defaultProfilePicture });
+      } else {
+        setUser(userFetched);
+      }
+    }
+    fetchUser();
+  });
 
   return (
-    <header data-testid="header-component" className="navegacao">
+    <header className="navegacao">
       <NavLink to="/search">
         <img src={ logo } alt="" className="logoNavH" />
       </NavLink>
@@ -16,36 +36,32 @@ function Header() {
       <div className="navsCont">
         <NavLink
           to="/search"
-          data-testid="link-to-search"
           className="navs"
         >
           Pesquisa
         </NavLink>
         <NavLink
           to="/favorites"
-          data-testid="link-to-favorites"
           className="navs"
         >
           Favoritas
         </NavLink>
         <NavLink
           to="/profile"
-          data-testid="link-to-profile"
           className="navs"
         >
           Perfil
         </NavLink>
         <div className="imgAndName">
           <img
-            src={ profileContext.photo }
+            src={ user.image }
             alt="Profile Pic"
             className="imageUser"
           />
           <span
-            data-testid="header-user-name"
             className="userSpan"
           >
-            { profileContext.name }
+            { user.name }
           </span>
         </div>
       </div>

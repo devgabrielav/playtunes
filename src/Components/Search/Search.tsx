@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Loading from '../Loading/Loading';
 import { AlbumType } from '../../types';
@@ -7,34 +7,27 @@ import './Search.css';
 import circleX from './circleError.png';
 
 function Search() {
-  const [inputValue, setInputValue] = useState<string>('');
+  const inputValue = useRef('');
   const [isLoading, setIsLoading] = useState(false);
-  const [inputandButton, setInputAndButton] = useState(true);
-  const [mappedAlbuns, setMappedAlbuns] = useState(false);
+  const [searched, setSearched] = useState(false);
   const [searchedAlbuns, setSearchedAlbuns] = useState<AlbumType[]>([]);
+  const [previousSearch, setPreviousSearch] = useState<string>('');
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
-    setInputValue(value);
+    inputValue.current = value;    
   };
 
-  const handleSearch = async () => {
+  const handleSearch = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     setIsLoading(true);
-    const albuns = await searchAlbumsAPI(inputValue);
-    setInputAndButton(false);
+    const albuns = await searchAlbumsAPI(inputValue.current);
     setSearchedAlbuns(albuns);
-    setMappedAlbuns(true);
+    setSearched(true);
     setIsLoading(false);
-  };
-
-  const handleCLick = async () => {
-    await handleSearch();
-  };
-
-  const handleEnterPress = async (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Enter') {
-      await handleSearch();
-    }
+    setPreviousSearch(inputValue.current);
+    inputValue.current = '';
+    setSearched(true);
   };
 
   if (isLoading) {
@@ -46,55 +39,24 @@ function Search() {
   }
 
   return (
-    <div>
-      {inputandButton && (
-        <div className="searchMain">
+    <div className="mainDiv">
+        <form className="searchMain" onSubmit={ handleSearch }>
           <div className="inputArtist">
             <input
               type="text"
-              data-testid="search-artist-input"
-              placeholder="Digite o nome do(a) artista ou banda"
+              placeholder="Type the artist or band name"
               name="artist"
               onChange={ handleChange }
-              onKeyDown={ handleEnterPress }
               className="pesquisador"
             />
           </div>
-          <button
-            data-testid="search-artist-button"
-            disabled={ inputValue.length < 2 }
-            onClick={ handleCLick }
-            className="pesquisaB"
-          >
+          <button className="pesquisaB">
             Pesquisar
           </button>
-        </div>
-      )}
-      {mappedAlbuns && (searchedAlbuns.length > 1 ? (
-        <div>
-          <div className="searchMain">
-            <div className="inputArtist">
-              <input
-                type="text"
-                data-testid="search-artist-input"
-                placeholder="Digite o nome do(a) artista ou banda"
-                name="artist"
-                onChange={ handleChange }
-                className="pesquisador"
-                onKeyDown={ handleEnterPress }
-              />
-            </div>
-            <button
-              data-testid="search-artist-button"
-              disabled={ inputValue.length < 2 }
-              onClick={ handleCLick }
-              className="pesquisaB"
-            >
-              Pesquisar
-            </button>
-          </div>
-          <p className="defaultText">{`Resultado de álbuns de: ${inputValue}`}</p>
+        </form>
+      {searched && (searchedAlbuns.length > 1 ? (
           <div className="albunsDiv">
+          <p className="defaultText">{`Resultado de álbuns de: ${previousSearch}`}</p>
             {searchedAlbuns.map((album) => (
               <div key={ album.collectionId } className="cover">
                 <Link
@@ -114,38 +76,13 @@ function Search() {
               </div>
             ))}
           </div>
-        </div>
       ) : (
-        <div>
-          <div className="searchMain">
-            <div className="inputArtist">
-              <input
-                type="text"
-                data-testid="search-artist-input"
-                placeholder="Digite o nome do(a) artista ou banda"
-                name="artist"
-                onChange={ handleChange }
-                className="pesquisador"
-                onKeyDown={ handleEnterPress }
-              />
-            </div>
-            <button
-              data-testid="search-artist-button"
-              disabled={ inputValue.length < 2 }
-              onClick={ handleCLick }
-              className="pesquisaB"
-            >
-              Pesquisar
-            </button>
-          </div>
           <div className="nothingFound">
             <img src={ circleX } alt="" />
             <p>Nenhum álbum foi encontrado</p>
           </div>
-        </div>
       ))}
     </div>
-
   );
 }
 

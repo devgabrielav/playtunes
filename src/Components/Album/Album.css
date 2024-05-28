@@ -34,6 +34,7 @@
   box-shadow: -9px 8px 8px 0px rgba(68, 73, 85, 0.2);
   margin-top: 100px;
   margin-left: -350px;
+  z-index: 1;
 }
 
 .artistAndAlbum {

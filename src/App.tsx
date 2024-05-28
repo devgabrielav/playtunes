@@ -8,7 +8,6 @@ import Layout from './Components/Layout/Layout';
 import Favorites from './Components/Favorites/Favorites';
 import Profile from './Components/Profile/Profile';
 import ProfileEdit from './Components/ProfileEdit/ProfileEdit';
-import ProfileProvider from './context/ProfileProvider';
 import { readUser } from './services/userAPI';
 import { UserType } from './types';
 
@@ -16,14 +15,16 @@ function App() {
   const [user, setUser] = useState<UserType>();
 
   useEffect(() => {
-    const userExists = readUser();
-    if (userExists) {
-      setUser(userExists);
+    const findUser = async () => {
+      const userExists = await readUser();
+      if (userExists) {
+        setUser(userExists);
+      }
     }
+    findUser();
   }, []);
 
   return (
-    <ProfileProvider>
       <Routes>
         <Route Component={ Layout }>
           <Route path="/search" Component={ Search } />
@@ -40,7 +41,6 @@ function App() {
           : <Route path="/" Component={ Login } />}
         <Route path="*" Component={ NotFound } />
       </Routes>
-    </ProfileProvider>
   );
 }
 
