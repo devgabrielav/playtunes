@@ -45,7 +45,7 @@ function Album() {
     );
   }
   return (
-    <div className='mainDiv'>
+    <div className="mainDiv">
       {showInfo && (
         <div style={ { background: '#dfe3e7' } }>
           <div className="albumDetails">
