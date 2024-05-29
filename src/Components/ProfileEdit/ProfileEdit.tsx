@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import isEmail from 'validator/lib/isEmail';
 import Loading from '../Loading/Loading';
@@ -44,7 +44,7 @@ function ProfileEdit() {
     validateUser(inputValue);
   };
 
-  const handleSubmit= async () => {
+  const handleSubmit = async () => {
     setIsLoading(true);
     navigate('/profile');
     setIsLoading(false);

@@ -1,7 +1,6 @@
 import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createUser } from '../../services/userAPI';
-import Loading from '../Loading/Loading';
 import './Login.css';
 import logo from './logo.png';
 

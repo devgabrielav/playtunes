@@ -5,9 +5,10 @@ const FAVORITE_SONGS_KEY = 'favorite_songs';
 if (!JSON.parse(localStorage.getItem(FAVORITE_SONGS_KEY) as string)) {
   localStorage.setItem(FAVORITE_SONGS_KEY, JSON.stringify([]));
 }
-const readFavoriteSongs = async (): Promise<SongType[]> => await JSON.parse(
-  localStorage.getItem(FAVORITE_SONGS_KEY) as string,
-);
+const readFavoriteSongs = async (): Promise<SongType[]> => {
+  const songs = await JSON.parse(localStorage.getItem(FAVORITE_SONGS_KEY) as string);
+  return songs;
+};
 
 const saveFavoriteSongs = (favoriteSongs: SongType[]) => localStorage
   .setItem(FAVORITE_SONGS_KEY, JSON.stringify(favoriteSongs));
@@ -24,7 +25,7 @@ export const addSong = async (song: SongType): Promise<void> => {
   }
 };
 
-export const removeSong = async (song: SongType): Promise<void>  => {
+export const removeSong = async (song: SongType): Promise<void> => {
   const favoriteSongs = await readFavoriteSongs();
   saveFavoriteSongs(favoriteSongs.filter((s) => s.trackId !== song.trackId));
 };

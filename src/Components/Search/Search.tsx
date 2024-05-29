@@ -15,7 +15,7 @@ function Search() {
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
-    inputValue.current = value;    
+    inputValue.current = value;
   };
 
   const handleSearch = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -40,47 +40,47 @@ function Search() {
 
   return (
     <div className="mainDiv">
-        <form className="searchMain" onSubmit={ handleSearch }>
-          <div className="inputArtist">
-            <input
-              type="text"
-              placeholder="Type the artist or band name"
-              name="artist"
-              onChange={ handleChange }
-              className="pesquisador"
-            />
-          </div>
-          <button className="pesquisaB">
-            Pesquisar
-          </button>
-        </form>
+      <form className="searchMain" onSubmit={ handleSearch }>
+        <div className="inputArtist">
+          <input
+            type="text"
+            placeholder="Type the artist or band name"
+            name="artist"
+            onChange={ handleChange }
+            className="pesquisador"
+          />
+        </div>
+        <button className="pesquisaB">
+          Pesquisar
+        </button>
+      </form>
       {searched && (searchedAlbuns.length > 1 ? (
-          <div className="albunsDiv">
+        <div className="albunsDiv">
           <p className="defaultText">{`Resultado de álbuns de: ${previousSearch}`}</p>
-            {searchedAlbuns.map((album) => (
-              <div key={ album.collectionId } className="cover">
-                <Link
-                  to={ `/album/${album.collectionId}` }
-                  data-testid={ `link-to-album-${album.collectionId}` }
-                  className="albumName"
-                >
-                  <img
-                    src={ album.artworkUrl100 }
-                    key={ album.collectionId }
-                    alt={ album.collectionName }
-                    className="imageCover"
-                  />
-                  {album.collectionName}
-                </Link>
-                <p className="artistName">{album.artistName}</p>
-              </div>
-            ))}
-          </div>
+          {searchedAlbuns.map((album) => (
+            <div key={ album.collectionId } className="cover">
+              <Link
+                to={ `/album/${album.collectionId}` }
+                data-testid={ `link-to-album-${album.collectionId}` }
+                className="albumName"
+              >
+                <img
+                  src={ album.artworkUrl100 }
+                  key={ album.collectionId }
+                  alt={ album.collectionName }
+                  className="imageCover"
+                />
+                {album.collectionName}
+              </Link>
+              <p className="artistName">{album.artistName}</p>
+            </div>
+          ))}
+        </div>
       ) : (
-          <div className="nothingFound">
-            <img src={ circleX } alt="" />
-            <p>Nenhum álbum foi encontrado</p>
-          </div>
+        <div className="nothingFound">
+          <img src={ circleX } alt="" />
+          <p>Nenhum álbum foi encontrado</p>
+        </div>
       ))}
     </div>
   );

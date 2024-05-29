@@ -10,7 +10,7 @@ const searchAlbumsAPI = async (artist: string): Promise<AlbumType[]> => {
   const { results }: { results: AlbumType[] } = await APIResponse.json();
 
   const response = results.map((artistInfo) => ({ ...artistInfo }));
-  
+
   return response;
 };
 

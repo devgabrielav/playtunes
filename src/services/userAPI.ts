@@ -2,13 +2,15 @@ import { UserType } from '../types';
 
 const USER_KEY = 'user';
 
-export const readUser = async (): Promise<UserType> => await JSON
-  .parse(localStorage.getItem(USER_KEY) as string);
+export const readUser = async (): Promise<UserType> => {
+  const user = await JSON.parse(localStorage.getItem(USER_KEY) as string);
+  return user;
+};
 
-const saveUser =  (user: UserType) => localStorage.setItem(USER_KEY, JSON.stringify(user));
+const saveUser = (user: UserType) => localStorage.setItem(USER_KEY, JSON.stringify(user));
 
 export const getUser = async (): Promise<UserType> => {
-  let user = await readUser();
+  const user = await readUser();
   return user;
 };
 

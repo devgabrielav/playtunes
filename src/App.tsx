@@ -20,27 +20,27 @@ function App() {
       if (userExists) {
         setUser(userExists);
       }
-    }
+    };
     findUser();
   }, []);
 
   return (
-      <Routes>
-        <Route Component={ Layout }>
-          <Route path="/search" Component={ Search } />
-          <Route path="/album/:id" Component={ Album } />
-          <Route path="/favorites" Component={ Favorites } />
-          <Route path="/profile" Component={ Profile } />
-          <Route path="/profile/edit" Component={ ProfileEdit } />
-        </Route>
-        {user
-          ? (
-            <Route Component={ Layout }>
-              <Route path="/" Component={ Search } />
-            </Route>)
-          : <Route path="/" Component={ Login } />}
-        <Route path="*" Component={ NotFound } />
-      </Routes>
+    <Routes>
+      <Route Component={ Layout }>
+        <Route path="/search" Component={ Search } />
+        <Route path="/album/:id" Component={ Album } />
+        <Route path="/favorites" Component={ Favorites } />
+        <Route path="/profile" Component={ Profile } />
+        <Route path="/profile/edit" Component={ ProfileEdit } />
+      </Route>
+      {user
+        ? (
+          <Route Component={ Layout }>
+            <Route path="/" Component={ Search } />
+          </Route>)
+        : <Route path="/" Component={ Login } />}
+      <Route path="*" Component={ NotFound } />
+    </Routes>
   );
 }
 

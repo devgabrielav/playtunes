@@ -23,7 +23,7 @@ function Header() {
       } else {
         setUser(userFetched);
       }
-    }
+    };
     fetchUser();
   });
 
