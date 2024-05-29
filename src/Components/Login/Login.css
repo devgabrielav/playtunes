@@ -1,6 +1,6 @@
 .loginMain {
   align-items: center;
-  background-image: url('../../images/login.png');
+  background-image: url('../../../public/assets/login.png');
   display: flex;
   justify-content: center;
   height: 100vh;
