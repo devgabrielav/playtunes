@@ -41,6 +41,7 @@
     "@types/react-router-dom": "^5.3.3",
     "@types/validator": "^13.11.9",
     "@vitejs/plugin-react-swc": "^3.6.0",
+    "gh-pages": "^6.1.1",
     "jsdom": "^21.1.2",
     "prop-types": "^15.8.1",
     "stylelint": "^14.16.1",
