@@ -4,7 +4,7 @@ import logo from './logo.png';
 import './Header.css';
 import { UserType } from '../../types';
 import { getUser } from '../../services/userAPI';
-import defaultProfilePicture from '../../images/default-user.png';
+import defaultProfilePicture from '../../../public/assets/default-user.png';
 
 function Header() {
   const emptyUser = {
