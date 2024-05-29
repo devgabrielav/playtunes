@@ -4,7 +4,7 @@ import Loading from '../Loading/Loading';
 import { AlbumType } from '../../types';
 import searchAlbumsAPI from '../../services/searchAlbumsAPI';
 import './Search.css';
-import circleX from './circleError.png';
+import circleX from '../../images/circleError.png';
 
 function Search() {
   const inputValue = useRef('');

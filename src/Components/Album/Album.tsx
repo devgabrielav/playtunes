@@ -25,7 +25,7 @@ function Album() {
   useEffect(() => {
     setIsLoading(true);
     const fetch = async () => {
-      if (id) {
+      if (id) {  
         const data = await getMusics(id); // musics = [AlbumType, ...SongType[]]
         const [album, ...musics] = data;
         setAlbumAndArtist(album);
