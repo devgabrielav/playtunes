@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import { SongType } from '../../types';
 import { addSong, getFavoriteSongs, removeSong } from '../../services/favoriteSongsAPI';
 import Loading from '../Loading/Loading';
-import empty from '../../../public/assets/empty_heart.png';
-import checked from '../../../public/assets/checked_heart.png';
+import empty from '/assets/empty_heart.png';
+import checked from '/assets/checked_heart.png';
 import './MusicCard.css';
 
 type MusicCardType = {

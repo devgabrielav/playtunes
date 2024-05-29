@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import logo from './logo.png';
+import logo from '/assets/logo.png';
 import './Header.css';
 import { UserType } from '../../types';
 import { getUser } from '../../services/userAPI';
-import defaultProfilePicture from '../../../public/assets/default-user.png';
+import defaultProfilePicture from '/assets/default-user.png';
 
 function Header() {
   const emptyUser = {

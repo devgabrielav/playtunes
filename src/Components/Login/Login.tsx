@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createUser } from '../../services/userAPI';
 import './Login.css';
-import logo from '../../../public/assets/logo.png';
+import logo from '/assets/logo.png';
 
 function Login() {
   const inputValue = useRef('');

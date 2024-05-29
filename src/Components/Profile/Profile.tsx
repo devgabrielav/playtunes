@@ -4,7 +4,7 @@ import Loading from '../Loading/Loading';
 import { getUser } from '../../services/userAPI';
 import { UserType } from '../../types';
 import './Profile.css';
-import defaultUser from '../../../public/assets/default-user.png';
+import defaultUser from '/assets/default-user.png';
 
 function Profile() {
   const [isLoading, setIsLoading] = useState(false);

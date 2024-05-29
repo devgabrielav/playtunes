@@ -5,7 +5,7 @@ import Loading from '../Loading/Loading';
 import { getUser, updateUser } from '../../services/userAPI';
 import { UserType } from '../../types';
 import './ProfileEdit.css';
-import defaultProfilePic from '../../../public/assets/default-user.png';
+import defaultProfilePic from '/assets/default-user.png';
 
 function ProfileEdit() {
   const [isLoading, setIsLoading] = useState(false);
