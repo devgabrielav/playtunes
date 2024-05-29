@@ -21,24 +21,22 @@ function Login() {
 
   const handleSubmit = () => {
     createUser({ name: inputValue.current });
-    navigate('/search');
+    navigate('/');
   };
 
   return (
     <main className="loginMain">
       <form className="box" onSubmit={ handleSubmit }>
-        <img src={ logo } alt="" className="logo" />
+        <img src={ logo } alt="Logo playtunes" className="logo" />
         <input
           type="text"
           placeholder="Type a username"
-          data-testid="login-name-input"
           onChange={ handleChange }
           name="login"
           className="login"
         />
         <br />
         <button
-          data-testid="login-submit-button"
           disabled={ isDisabled }
           className="button"
           style={ isDisabled ? { color: 'grey' } : { color: 'white' } }

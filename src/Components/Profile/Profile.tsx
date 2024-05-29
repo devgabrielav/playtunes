@@ -34,7 +34,6 @@ function Profile() {
         <img
           src={ userData && userData.image ? userData.image : defaultUser }
           alt="Foto usuário"
-          data-testid="profile-image"
           className="profilePic"
         />
       </div>

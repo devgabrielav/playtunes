@@ -61,7 +61,6 @@ function Search() {
             <div key={ album.collectionId } className="cover">
               <Link
                 to={ `/album/${album.collectionId}` }
-                data-testid={ `link-to-album-${album.collectionId}` }
                 className="albumName"
               >
                 <img

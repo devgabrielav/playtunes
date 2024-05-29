@@ -55,7 +55,6 @@ function MusicCard({ musics, handleClick = undefined }: MusicCardType) {
       <div className="audioAndCheck">
         <div className="audioBack">
           <audio
-            data-testid="audio-component"
             src={ previewUrl }
             controls
             className="audio"
@@ -69,7 +68,6 @@ function MusicCard({ musics, handleClick = undefined }: MusicCardType) {
         </div>
         <label
           htmlFor={ trackName }
-          data-testid={ `checkbox-music-${trackId}` }
           className="heart"
         >
           <img

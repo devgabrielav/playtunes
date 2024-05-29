@@ -29,13 +29,13 @@ function Header() {
 
   return (
     <header className="navegacao">
-      <NavLink to="/search">
+      <NavLink to="/">
         <img src={ logo } alt="" className="logoNavH" />
       </NavLink>
       <br />
       <div className="navsCont">
         <NavLink
-          to="/search"
+          to="/"
           className="navs"
         >
           Pesquisa
@@ -58,9 +58,7 @@ function Header() {
             alt="Profile Pic"
             className="imageUser"
           />
-          <span
-            className="userSpan"
-          >
+          <span className="userSpan">
             { user.name }
           </span>
         </div>
