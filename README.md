@@ -19,7 +19,6 @@ On this project my goal is to create an application capable of playing music fro
 
 Front-end:
 > Developed using: Typescript, CSS, Vite, React, Validator and React Router DOM.
-- ESLint was also used for cleaner code.
 - Local Storage to save User and Favorite Songs.
 
 Fetched catalog:
