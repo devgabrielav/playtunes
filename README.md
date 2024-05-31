@@ -1,6 +1,6 @@
 # Project Playtunes
 
-[Deploy](devgabrielav.github.io/playtunes) 
+[Deploy](https://devgabrielav.github.io/playtunes/) 
 
 # Context
 This is a Frontend project.
