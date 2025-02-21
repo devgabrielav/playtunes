@@ -1,11 +1,10 @@
-import { useContext, useEffect, useState } from "react";
-import { LoadingContext } from "../context/LoadingContext";
-import Loading from "./Loading";
+import { useEffect, useState } from "react";
 import { getUser } from "../utils/userAPI";
 import { UserType } from "../types/UserType";
+import Loading from "./Loading";
 
 function Header() {
-  const { setLoading } = useContext(LoadingContext);
+  const [loading, setLoading] = useState<boolean>(false);
   const [userData, setUserData] = useState<UserType>({ name: '', email: '', image: '', description: '' });
 
   useEffect(() => {
@@ -17,6 +16,10 @@ function Header() {
     }
     fetchUser();
   }, []);
+
+  if (loading) {
+    return <Loading />
+  }
 
   return (
     <>

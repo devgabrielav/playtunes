@@ -12,7 +12,7 @@ function SearchResults({ albums, searchValue }: SearchResultsType) {
   }
   return (
     <>
-    <h1>Resultado de álbuns de: { searchValue }</h1>
+    <h1>Resultado de álbuns de { searchValue }</h1>
       { albums.map((album) => (
         <div key={ album.collectionId } >
           <p>{ album.collectionName }</p>

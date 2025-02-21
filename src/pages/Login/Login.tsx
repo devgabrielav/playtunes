@@ -1,19 +1,22 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createUser } from "../../utils/userAPI";
-import { LoadingContext } from "../../context/LoadingContext";
 import Loading from "../../components/Loading";
 
 function Login() {
   const [name, setName] = useState<string>('');
   const navigate = useNavigate();
-  const { setLoading } = useContext(LoadingContext);
+  const [ loading, setLoading ] = useState<boolean>(false);
 
   const login = async () => {
     setLoading(true);
     await createUser({ name });
     navigate('/search');
     setLoading(false);
+  }
+
+  if (loading) {
+    return <Loading/>
   }
 
   return (

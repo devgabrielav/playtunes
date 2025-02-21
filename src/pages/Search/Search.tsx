@@ -1,9 +1,10 @@
 import { useContext, useState } from "react";
-import { LoadingContext } from "../../context/LoadingContext";
-import Loading from "../../components/Loading";
 import searchAlbumsAPI from "../../utils/searchAlbumsAPI";
 import { AlbumType } from "../../types/AlbumType";
 import SearchResults from "../../components/SearchResults";
+import Loading from "../../components/Loading";
+import SearchForm from "../../components/SearchForm";
+import { SearchContext } from "../../context/SearchContext";
 
 type SearchType = {
   albums: AlbumType[];
@@ -11,8 +12,8 @@ type SearchType = {
 }
 
 function Search() {
-  const { setLoading } = useContext(LoadingContext);
-  const [searchValue, setSearchValue] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
+  const { searchValue, setSearchValue } = useContext(SearchContext);
   const [searchResults, setSearchResults] = useState<SearchType>({albums: [], searchValue: ''});
   const [showResults, setShowResults] = useState<boolean>(false);
 
@@ -28,15 +29,19 @@ function Search() {
     setLoading(false);
   }
 
+  if (loading) {
+    return <Loading />
+  }
+
   return (
     <>
       {showResults ? (
-        <SearchResults albums={ searchResults.albums } searchValue={ searchResults.searchValue } />
+        <div>
+          <SearchForm search={ search } />
+          <SearchResults albums={ searchResults.albums } searchValue={ searchResults.searchValue } />
+        </div>
       ) : (
-      <form action="" onSubmit={ search }>
-        <input type="text" onChange={ (e) => setSearchValue(e.target.value) } />
-        <button disabled={ searchValue.length >= 2 ? false : true }>Search</button>
-      </form>
+        <SearchForm search={ search } />
       )}
     </>
   )

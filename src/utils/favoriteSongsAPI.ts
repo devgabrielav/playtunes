@@ -1,3 +1,4 @@
+import { MusicCardType } from '../components/MusicCard';
 import { SongType } from '../types/SongType';
 
 const FAVORITE_SONGS_KEY = 'favorite_songs';
@@ -38,3 +39,16 @@ export const removeSong = (song: SongType): Promise<'OK'> => new Promise((resolv
   saveFavoriteSongs(favoriteSongs.filter((s) => s.trackId !== song.trackId));
   simulateRequest(SUCCESS_STATUS)(resolve);
 });
+
+export const addRemove = async ({ song, favSongs, setFavSongs }: MusicCardType) => {
+  const trackExistsInFav = favSongs.find((track) => track.trackId === song.trackId);
+
+  if (trackExistsInFav) {
+    const removedSong = favSongs.filter((item) => item !== trackExistsInFav);
+    setFavSongs(removedSong);
+    await removeSong(song);
+  } else {
+    setFavSongs([...favSongs, song]);
+    await addSong(song);
+  }
+}
