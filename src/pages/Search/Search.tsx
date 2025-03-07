@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import searchAlbumsAPI from "../../utils/searchAlbumsAPI";
 import { AlbumType } from "../../types/AlbumType";
 import SearchResults from "../../components/SearchResults";
-import Loading from "../../components/Loading";
+import Loading from "../../components/Loading/Loading";
 import SearchForm from "../../components/SearchForm";
 import { SearchContext } from "../../context/SearchContext";
 

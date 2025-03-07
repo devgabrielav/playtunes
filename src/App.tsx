@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import Login from "./pages/Login/Login";
 import Search from "./pages/Search/Search";
 import Album from "./pages/Album/Album";
@@ -7,8 +7,24 @@ import Profile from "./pages/Profile/Profile";
 import ProfileEdit from "./pages/ProfileEdit/ProfileEdit";
 import NotFound from "./pages/NotFound/NotFound";
 import Layout from "./pages/Layout/Layout";
+import { useEffect } from "react";
+import { getUser } from "./utils/userAPI";
 
 function App() {
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    const userExists = async () => {
+      const user = await getUser();
+      if (pathname !== '/' && !user.name) {
+        navigate('/');
+      } else {
+        navigate('/search');
+      }
+    }
+    userExists();
+  }, [])
 
   return (
     <Routes>

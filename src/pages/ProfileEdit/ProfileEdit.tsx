@@ -4,7 +4,7 @@ import { initialValue } from "../Profile/Profile";
 import { getUser } from "../../utils/userAPI";
 import defaultProfileImage from '../../assets/default-user.png';
 import InputLabel from "../../components/InputLabel";
-import Loading from "../../components/Loading";
+import Loading from "../../components/Loading/Loading";
 
 function ProfileEdit() {
   const [user, setUser] = useState<UserType>(initialValue);
