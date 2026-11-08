@@ -1,7 +1,7 @@
 import { AlbumType } from '../types';
 
 const searchAlbumsAPI = async (artist: string): Promise<AlbumType[]> => {
-  const artistNameURL = encodeURI(artist).replaceAll('%20', '+');
+  const artistNameURL = encodeURIComponent(artist.trim()).replaceAll('%20', '+');
 
   const getAlbumsAPI = `https://itunes.apple.com/search?entity=album&term=${artistNameURL}&attribute=allArtistTerm`;
 

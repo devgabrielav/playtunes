@@ -5,7 +5,7 @@ import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as Element);
 root.render(
-  <BrowserRouter basename="playtunes">
+  <BrowserRouter basename={ import.meta.env.BASE_URL }>
     <App />
   </BrowserRouter>,
 );

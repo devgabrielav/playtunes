@@ -1,27 +1,46 @@
 .notfoundMain {
-  background: linear-gradient(289.33deg, #003be5 -3.32%, #00d5e2 72.67%);
-  height: 691px;
-  left: -2753px;
+  background: var(--bg-header-banner);
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
   text-align: center;
 }
 
 .ops {
-  color: #003be5;
+  color: #ffffff;
   display: flex;
-  font-size: 122px;
-  font-weight: 400px;
+  align-items: center;
   justify-content: center;
+  gap: 28px;
+  font-size: 96px;
+  font-weight: 700;
   letter-spacing: 0.02em;
-  line-height: 125px;
-  margin-top: -0.5px;
-  padding: 250px;
+  line-height: 1.1;
+  margin: 0;
+  flex-wrap: wrap;
 }
 
 .texto {
-  color: #00d5e2;
-  font-size: 37px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 28px;
   font-weight: 300;
   letter-spacing: 0.02em;
-  line-height: 40px;
+  line-height: 1.35;
   text-align: left;
+}
+
+@media (max-width: 640px) {
+  .ops {
+    flex-direction: column;
+    font-size: 64px;
+    gap: 16px;
+  }
+
+  .texto {
+    font-size: 20px;
+    text-align: center;
+  }
 }

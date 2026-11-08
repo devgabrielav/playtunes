@@ -1,76 +1,140 @@
-.albumSongs {
-  width: 1080px;
-  height: 100%;
-  flex-shrink: 0;
-  background: #dfe3e7;
+.albumPageContent {
+  width: 100%;
+  min-height: 100%;
   display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  margin-left: 380px;
-  margin-top: 50px;
-  text-align: start;
-  margin-bottom: 20px;
 }
 
 .albumDetails {
-  box-shadow: 0 10px 10px 5px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  width: 250vh;
-  height: 30vh;
-  flex-shrink: 0;
+  background: var(--bg-header-banner);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: var(--shadow-md);
+  width: 100%;
+  min-height: 250px;
+  padding: 40px 28px;
   display: flex;
-  margin: auto;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+
+.albumHeaderInner {
+  width: 100%;
+  max-width: 920px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
 }
 
 .capa {
-  width: 220px;
-  height: 220px;
+  width: 190px;
+  height: 190px;
   flex-shrink: 0;
-  border-radius: 12px;
-  box-shadow: -9px 8px 8px 0px rgba(68, 73, 85, 0.2);
-  margin-top: 100px;
-  margin-left: -350px;
-  z-index: 1;
+  border-radius: 18px;
+  object-fit: cover;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55);
+  border: 2px solid rgba(56, 189, 248, 0.35);
 }
 
 .artistAndAlbum {
-  margin-left: 30px;
-  margin-top: -10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
   text-align: start;
 }
 
-.albumNameA {
-  width: 270px;
-  color: black;
-  font-family: Epilogue;
-  font-size: 20px;
-  font-style: normal;
+.albumBadge {
+  display: inline-flex;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(56, 189, 248, 0.16);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: #38bdf8;
+  font-size: 11px;
   font-weight: 700;
-  line-height: 150%; /* 30px */
+  letter-spacing: 0.8px;
+}
+
+.albumNameA {
+  margin: 0;
+  color: #f8fafc;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.3;
 }
 
 .artistNameA {
-  color: black;
-  font-family: Epilogue;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%; /* 21px */
-  margin-top: -5px;
+  margin: 0;
+  color: #60a5fa;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
 }
 
-.albumLoading {
-  width: 1080px;
-  height: 100%;
-  flex-shrink: 0;
-  background: #dfe3e7;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+.albumBackLink {
+  margin-top: 6px;
+  display: inline-flex;
   align-items: center;
-  margin-left: 264.4px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: rgba(16, 25, 48, 0.75);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  color: #cbd5e1;
+  font-size: 12.5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.albumBackLink:hover {
+  background: var(--accent-gradient);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+.albumSongs {
+  width: 100%;
+  max-width: 920px;
+  margin: 36px auto 56px;
+  padding: 0 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+@media (max-width: 768px) {
+  .albumDetails {
+    padding: 28px 16px;
+    min-height: auto;
+  }
+
+  .albumHeaderInner {
+    flex-direction: column;
+    text-align: center;
+    gap: 18px;
+  }
+
+  .capa {
+    width: 160px;
+    height: 160px;
+  }
+
+  .artistAndAlbum {
+    text-align: center;
+    align-items: center;
+  }
+
+  .albumNameA {
+    font-size: 22px;
+  }
+
+  .artistNameA {
+    font-size: 15px;
+  }
+
+  .albumSongs {
+    margin: 24px auto 40px;
+    padding: 0 16px;
+  }
 }

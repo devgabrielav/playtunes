@@ -17,11 +17,15 @@ function App() {
   useEffect(() => {
     const findUser = async () => {
       const userExists = await readUser();
-      if (userExists) {
+      if (userExists && userExists.name) {
         setUser(userExists);
+      } else {
+        setUser(undefined);
       }
     };
     findUser();
+    window.addEventListener('userUpdated', findUser);
+    return () => window.removeEventListener('userUpdated', findUser);
   }, []);
 
   return (

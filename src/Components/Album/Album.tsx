@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import MusicCard from '../MusicCard/MusicCard';
 import getMusics from '../../services/musicsAPI';
@@ -24,17 +24,22 @@ function Album() {
 
   useEffect(() => {
     setIsLoading(true);
-    const fetch = async () => {
-      if (id) {  
-        const data = await getMusics(id); // musics = [AlbumType, ...SongType[]]
-        const [album, ...musics] = data;
-        setAlbumAndArtist(album);
-        setMusicsToBe(musics);
-        setShowInfo(true);
-        setIsLoading(false);
+    const fetchAlbum = async () => {
+      if (id) {
+        try {
+          const data = await getMusics(id);
+          if (data && data.length > 0) {
+            const [album, ...musics] = data;
+            setAlbumAndArtist(album);
+            setMusicsToBe(musics.filter((music) => music && music.trackId));
+            setShowInfo(true);
+          }
+        } finally {
+          setIsLoading(false);
+        }
       }
     };
-    fetch();
+    fetchAlbum();
   }, [id]);
 
   if (isLoading) {
@@ -44,23 +49,30 @@ function Album() {
       </div>
     );
   }
+
   return (
     <div className="mainDiv">
       {showInfo && (
-        <div style={ { background: '#dfe3e7' } }>
+        <div className="albumPageContent">
           <div className="albumDetails">
-            <img
-              src={ albumAndArtist.artworkUrl100 }
-              alt={ albumAndArtist.collectionName }
-              className="capa"
-            />
-            <div className="artistAndAlbum">
-              <p className="albumNameA">
-                { albumAndArtist.collectionName }
-              </p>
-              <p className="artistNameA">
-                { albumAndArtist.artistName }
-              </p>
+            <div className="albumHeaderInner">
+              <img
+                src={ albumAndArtist.artworkUrl100 }
+                alt={ albumAndArtist.collectionName }
+                className="capa"
+              />
+              <div className="artistAndAlbum">
+                <span className="albumBadge">ÁLBUM OFICIAL</span>
+                <p className="albumNameA">
+                  { albumAndArtist.collectionName }
+                </p>
+                <p className="artistNameA">
+                  { albumAndArtist.artistName }
+                </p>
+                <Link to="/" className="albumBackLink">
+                  ← Voltar para Pesquisa
+                </Link>
+              </div>
             </div>
           </div>
           <div className="albumSongs">

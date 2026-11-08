@@ -1,3 +1,28 @@
 .layoutDiv {
   display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--bg-primary);
+}
+
+.layoutDiv > main {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  width: calc(100% - var(--sidebar-width));
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .layoutDiv {
+    flex-direction: column;
+  }
+
+  .layoutDiv > main {
+    margin-left: 0;
+    width: 100%;
+    min-height: calc(100vh - 120px);
+    padding-bottom: 24px;
+  }
 }

@@ -7,17 +7,17 @@ import checked from '/assets/checked_heart.png';
 import './MusicCard.css';
 
 type MusicCardType = {
-  musics : SongType,
-  handleClick?: (event : React.MouseEvent<HTMLInputElement>) => void,
+  musics: SongType;
+  handleClick?: (event: React.MouseEvent<HTMLInputElement>) => void;
 };
 
 function MusicCard({ musics, handleClick = undefined }: MusicCardType) {
-  const { trackName, previewUrl, trackId } = musics;
+  const { trackName, previewUrl, trackId, artistName, artworkUrl100 } = musics;
   const [isChecked, setIsChecked] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const heartFull = async () => {
-    if (isChecked === true) {
+    if (isChecked) {
       setIsChecked(false);
       await removeSong(musics);
     } else {
@@ -30,12 +30,8 @@ function MusicCard({ musics, handleClick = undefined }: MusicCardType) {
     setIsLoading(true);
     const fetchMusic = async () => {
       const result = await getFavoriteSongs();
-      result.filter((music) => {
-        if (music.trackId === trackId) {
-          return setIsChecked(true);
-        }
-        return null;
-      });
+      const isFav = result.some((music) => music.trackId === trackId);
+      setIsChecked(isFav);
       setIsLoading(false);
     };
     fetchMusic();
@@ -51,7 +47,19 @@ function MusicCard({ musics, handleClick = undefined }: MusicCardType) {
 
   return (
     <div className="card">
-      <span className="songName">{ trackName }</span>
+      <div className="songInfoRow">
+        {artworkUrl100 && (
+          <img
+            src={ artworkUrl100 }
+            alt={ trackName }
+            className="songThumb"
+          />
+        )}
+        <div className="songMeta">
+          <span className="songName">{ trackName }</span>
+          {artistName && <span className="songArtistSub">{ artistName }</span>}
+        </div>
+      </div>
       <div className="audioAndCheck">
         <div className="audioBack">
           <audio
@@ -71,7 +79,7 @@ function MusicCard({ musics, handleClick = undefined }: MusicCardType) {
           className="heart"
         >
           <img
-            src={ isChecked ? (checked) : (empty) }
+            src={ isChecked ? checked : empty }
             alt="favorite"
           />
           <input

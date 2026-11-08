@@ -9,61 +9,66 @@ import defaultProfilePic from '/assets/default-user.png';
 
 function ProfileEdit() {
   const [isLoading, setIsLoading] = useState(false);
-  const [inputValue, setInputValue] = useState<UserType>({} as UserType);
+  const [inputValue, setInputValue] = useState<UserType>({
+    name: '',
+    email: '',
+    image: '',
+    description: '',
+  });
   const [isDisabled, setIsDisabled] = useState(true);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const fetchUser = async () => {
-      const fetchedUser = await getUser();
-      setInputValue(fetchedUser);
-    };
-    fetchUser();
-  }, []);
-
   const validateUser = (user: UserType) => {
-    if (isEmail(user.email)
-      && user.email.length > 0
-      && user.description.length > 0
-      && user.name.length > 0
-      && user.image.length > 0) {
+    if (
+      user
+      && isEmail(user.email || '')
+      && user.email.trim().length > 0
+      && user.description.trim().length > 0
+      && user.name.trim().length > 0
+      && user.image.trim().length > 0
+    ) {
       setIsDisabled(false);
     } else {
       setIsDisabled(true);
     }
   };
 
-  const handleChange = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    const { value, name } = event.target;
-    setInputValue({
-      ...inputValue,
-      [name]: value,
-    });
-    validateUser(inputValue);
-  };
-
-  const handleSubmit = async () => {
-    setIsLoading(true);
-    navigate('/profile');
-    setIsLoading(false);
-    if (inputValue.image.length === 0) {
-      updateUser({ ...inputValue, image: defaultProfilePic });
-    }
-    updateUser(inputValue);
-  };
-
   useEffect(() => {
     setIsLoading(true);
     const fetchUser = async () => {
       const usuario = await getUser();
-      setInputValue(usuario);
-      validateUser(usuario);
+      if (usuario) {
+        setInputValue(usuario);
+        validateUser(usuario);
+      }
       setIsLoading(false);
     };
     fetchUser();
   }, []);
+
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const { value, name } = event.target;
+    const nextUser = {
+      ...inputValue,
+      [name]: value,
+    };
+    setInputValue(nextUser);
+    validateUser(nextUser);
+  };
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setIsLoading(true);
+    const finalUser = {
+      ...inputValue,
+      image: inputValue.image.trim().length === 0 ? defaultProfilePic : inputValue.image,
+    };
+    updateUser(finalUser);
+    setIsLoading(false);
+    navigate('/profile');
+  };
 
   if (isLoading) {
     return (
@@ -76,15 +81,24 @@ function ProfileEdit() {
   return (
     <form onSubmit={ handleSubmit } className="formEdit">
       <div className="backEdit">
-        <img src={ inputValue.image } alt="" className="imgProfile" />
-        <input
-          type="url"
-          onChange={ handleChange }
-          name="image"
-          placeholder="Insira um link"
-          value={ inputValue.image }
-          className="userImage"
-        />
+        <div className="editAvatarRow">
+          <img
+            src={ inputValue.image || defaultProfilePic }
+            alt="Preview do perfil"
+            className="imgProfile"
+            onError={ (e) => {
+              (e.currentTarget as HTMLImageElement).src = defaultProfilePic;
+            } }
+          />
+          <input
+            type="url"
+            onChange={ handleChange }
+            name="image"
+            placeholder="Insira um link"
+            value={ inputValue.image }
+            className="userImage"
+          />
+        </div>
       </div>
       <div className="otherInputs">
         <h3 className="editH3">Nome </h3>
@@ -116,9 +130,10 @@ function ProfileEdit() {
           className="description"
         />
         <button
+          type="submit"
           disabled={ isDisabled }
           className="saveButton"
-          style={ isDisabled ? { color: 'grey' } : { color: 'white' } }
+          style={ isDisabled ? { color: 'rgba(255, 255, 255, 0.5)' } : { color: 'white' } }
         >
           Salvar
         </button>
