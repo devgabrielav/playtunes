@@ -1,64 +1,80 @@
-# Project Playtunes
+# 🎵 PlayTunes
 
-[Deploy](https://devgabrielav.github.io/playtunes/) 
+[🚀 Live Demo](https://devgabrielav.github.io/playtunes/)
 
-# Context
-This is a Frontend project.
+## 🎯 Project overview
 
-On this project my goal is to create an application capable of playing music from a wide range of artists and bands, discovering curated music recommendations on the home screen, creating a list of favorite songs and managing the profile of the logged-in user. This application will be able to:
+PlayTunes is a music discovery and personal library application designed to help users explore artists, albums, and song previews in a simple and engaging interface. The app allows users to search for music, browse recommendations, manage favorite songs, and keep separate profile data for different people in the same browser experience.
 
-- Login with a new username or select an existing saved profile directly from the login screen.
-- Switch between profiles or log out at any time, keeping each user's information and favorite songs saved separately.
-- Explore the Home discovery section with suggested artists, quick-search tags, playable song previews, and recommended albums.
-- Search for a band or artist.
-- List the available albums of this band or artist.
-- View songs and details from a selected album.
-- Play a preview of the songs on the home screen, album page, or favorites list.
-- Favorite and unfavorite songs in real time.
-- View the list of favorite songs saved for the active user.
-- View the profile of the logged in person.
-- Edit the profile of the logged in person (name, email, description, and profile picture URL with live preview).
-- Use the application seamlessly across desktop and mobile devices with a responsive layout.
+## ✨ Features
 
-## Used technologies
+- User login and profile switching
+- Creation or reuse of saved profiles
+- Search for artists and bands
+- Album list and track details view
+- Song preview playback from multiple screens
+- Real-time favorite and unfavorite actions
+- Personalized favorites list per user
+- Profile viewing and editing with live preview
+- Responsive layout for desktop and mobile devices
 
-Front-end:
-> Developed using: TypeScript, React 18, Vite (`@vitejs/plugin-react-swc`), CSS3 (Flexbox, Grid, Custom Properties & Responsive Media Queries), React Router DOM (v6), Validator, and React Spinners.
-- Local Storage to persist multiple user profiles, active user sessions, and each user's list of favorite songs.
+## 🧭 Main routes
 
-Fetched catalog:
-> Apple Music / iTunes Search & Lookup API (`itunes.apple.com`), with automatic JSONP fallback to prevent CORS issues when fetching album tracks.
+- `/` — login screen when logged out, or home/discovery screen when logged in
+- `/album/:id` — album details and track list with audio previews
+- `/favorites` — saved favorite songs for the current user
+- `/profile` — current user profile view
+- `/profile/edit` — profile editing form
 
-Deployment:
-> GitHub Pages with automated CI/CD via GitHub Actions.
+## 🛠️ Technologies
 
-## Project routes
+### Frontend
+- TypeScript
+- React 18
+- Vite
+- React Router DOM
+- CSS3 with responsive design patterns
 
-- `/`: Login screen (when logged out) or Home / Search & Discovery page (when logged in).
-- `/album/:id`: Album details and tracklist with audio previews.
-- `/favorites`: Saved favorite songs for the current user.
-- `/profile`: Current user's profile view.
-- `/profile/edit`: Form to edit user profile information.
+### Backend / data layer
+- Apple Music / iTunes Search API
+- JSONP fallback to handle CORS restrictions when loading album tracks
+- Local Storage for user profiles and favorites persistence
 
-## Installing Dependencies
+### Tools and deployment
+- GitHub Pages
+- GitHub Actions
+- React Spinners
+- Validator
 
-> After cloning the project
+## ▶️ Run locally
+
+1. Clone the repository:
 
 ```bash
+git clone <repository-url>
 cd playtunes
+```
+
+2. Install dependencies:
+
+```bash
 npm install
 ```
 
-## Running the application
+3. Start the development server:
 
 ```bash
 npm run dev
 ```
 
-## Building for production
+4. Build for production:
 
 ```bash
 npm run build
 npm run preview
 ```
+
+## 🧩 Notes
+
+The project is built as a frontend application with a focus on user experience, responsive design, and music discovery. It combines browsing, playback, favorites, and profile management in a single interface, making the experience feel like a lightweight streaming and library app.
 
