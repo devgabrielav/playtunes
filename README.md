@@ -67,13 +67,6 @@ npm install
 npm run dev
 ```
 
-4. Build for production:
-
-```bash
-npm run build
-npm run preview
-```
-
 ## 🧩 Notes
 
 The project is built as a frontend application with a focus on user experience, responsive design, and music discovery. It combines browsing, playback, favorites, and profile management in a single interface, making the experience feel like a lightweight streaming and library app.
