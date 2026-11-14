@@ -67,6 +67,32 @@ npm install
 npm run dev
 ```
 
+## 📸 Screenshots
+
+Desktop
+<p align="center">
+  <img src="public/assets/app-screenshots/playtunes-1.png" alt="PlayTunes desktop home screen" width="100%" />
+</p>
+<p align="center">
+  <img src="public/assets/app-screenshots/playtunes-2.png" alt="PlayTunes album and music details view" width="100%" />
+</p>
+
+Features
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <img src="public/assets/app-screenshots/playtunes-3.png" alt="PlayTunes search and album browsing interface" width="100%" />
+    </td>
+    <td align="center" width="50%">
+      <img src="public/assets/app-screenshots/playtunes-4.png" alt="PlayTunes favorites and profile management" width="100%" />
+    </td>
+  </tr>
+</table>
+
+<p align="center">
+  <img src="public/assets/app-screenshots/playtunes-5.png" alt="PlayTunes mobile-friendly interface" width="100%" />
+</p>
+
 ## 🧩 Notes
 
 The project is built as a frontend application with a focus on user experience, responsive design, and music discovery. It combines browsing, playback, favorites, and profile management in a single interface, making the experience feel like a lightweight streaming and library app.
